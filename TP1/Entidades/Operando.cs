@@ -34,6 +34,45 @@ namespace Entidades
             return result;
         }
 
+        public static string DecimalBinario(string numero)
+        {
+            double numeroDouble;
+            if(double.TryParse(numero, out numeroDouble))
+            {
+                return DecimalBinario(numeroDouble);
+            }
+            else
+            {
+                return "Valor inválido";
+            }
+        }
+
+        //RESTRINGIR A ENTEROS POSITIVOS EN AMBAS CONVERSIONES quedándose para esto con el valor absoluto y entero del
+        //double recibido:
+        public static string DecimalBinario(double numero)
+        {
+            string resultado = "";
+            int numeroEntero = Convert.ToInt32(numero);
+            while (numeroEntero != 0)
+            {
+                if (numeroEntero % 2 == 0)
+                {
+                    resultado = resultado.Insert(0, "0");
+                }
+                else if (numeroEntero == 1)
+                {
+                    resultado = resultado.Insert(0, "1");
+                    numeroEntero = 0;
+                }
+                else
+                {
+                    resultado = resultado.Insert(0, "1");
+                }
+                numeroEntero = numeroEntero / 2;
+            }
+
+            return resultado;
+        }
         private static bool EsBinario(string binario)
         {
             bool isOk = true;
@@ -71,6 +110,10 @@ namespace Entidades
         }
         public static double operator /(Operando n1, Operando n2)
         {
+            if(n2.numero == 0)
+            {
+                return double.MinValue;
+            }
             return n1.numero / n2.numero;
         }
         public static double operator +(Operando n1, Operando n2)
