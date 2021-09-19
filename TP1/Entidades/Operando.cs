@@ -122,7 +122,14 @@ namespace Entidades
         }
         private double ValidarOperando(string numero)
         {
-            return Convert.ToDouble(numero);
+            if(double.TryParse(numero, out double numeroDouble))
+            {
+                return Convert.ToDouble(numeroDouble);
+            }
+            else
+            {
+                return 0;
+            }
         }
 
     }

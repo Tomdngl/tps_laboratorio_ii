@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31613.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades.csproj", "{62C0C59F-6B28-4D74-9717-583D152105DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entidades", "Entidades.csproj", "{62C0C59F-6B28-4D74-9717-583D152105DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiCalculadora", "..\MiCalculadora\MiCalculadora.csproj", "{2D542BD2-A97F-4206-9113-EADC99CBA3DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiCalculadora", "..\MiCalculadora\MiCalculadora.csproj", "{2D542BD2-A97F-4206-9113-EADC99CBA3DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "..\TestConsole\TestConsole.csproj", "{01B805D2-D569-413A-B5C4-95A8EF0679F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestConsole", "..\TestConsole\TestConsole.csproj", "{01B805D2-D569-413A-B5C4-95A8EF0679F0}"
 	ProjectSection(ProjectDependencies) = postProject
 		{62C0C59F-6B28-4D74-9717-583D152105DE} = {62C0C59F-6B28-4D74-9717-583D152105DE}
 	EndProjectSection

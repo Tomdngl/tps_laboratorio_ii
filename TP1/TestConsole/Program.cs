@@ -7,8 +7,13 @@ namespace TestConsole
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Operando.BinarioDecimal("101"));
-            Console.WriteLine(Operando.DecimalBinario("9999999"));
+            Console.WriteLine(Operando.BinarioDecimal("1010"));
+            Console.WriteLine(Operando.DecimalBinario("5"));
+            Operando op1 = new Operando(5.5);
+            Operando op2 = new Operando(5);
+
+            double result = Calculadora.Operar(op1, op2, '*');
+            Console.WriteLine("El resultado es {0}", result);
             Console.ReadLine();
         }
     }
