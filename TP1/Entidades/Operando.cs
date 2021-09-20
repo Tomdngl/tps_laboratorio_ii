@@ -12,20 +12,36 @@ namespace Entidades
                 this.numero = ValidarOperando(value);
             }
         }
-
+        public Operando()
+        {
+            this.numero = 0;
+        }
+        public Operando(double numero) : this()
+        {
+            this.numero = numero;
+        }
+        public Operando(string strNumero) : this()
+        {
+            Numero = strNumero;
+        }
+        /// <summary>
+        /// Transforma un numero binario a decimal en caso de ser posible.
+        /// </summary>
+        /// <param name="binario"></param>
+        /// <returns></returns>
         public static string BinarioDecimal(string binario)
         {
             string result = "Valor inválido";
 
-            if(EsBinario(binario))
+            if(EsBinario(binario) && binario != "" && long.TryParse(binario, out long intBinario))
             {
-                int numero = 0;
-                int digito;
+                long numero = 0;
+                long digito;
 
-                for (long i = int.Parse(binario), j = 0; i > 0; i /= 10, j++)
+                for (long i = intBinario, j = 0; i > 0; i /= 10, j++)
                 {
-                    digito = (int)i % 10;
-                    numero += digito * (int)Math.Pow(2, j);
+                    digito = (long)i % 10;
+                    numero += digito * (long)Math.Pow(2, j);
                 }
 
                 result = numero.ToString();
@@ -33,7 +49,11 @@ namespace Entidades
 
             return result;
         }
-
+        /// <summary>
+        /// Transforma un numero decimal en uno binario en caso de ser posible.
+        /// </summary>
+        /// <param name="numero"></param>
+        /// <returns></returns>
         public static string DecimalBinario(string numero)
         {
             double numeroDouble;
@@ -46,13 +66,14 @@ namespace Entidades
                 return "Valor inválido";
             }
         }
-
-        //RESTRINGIR A ENTEROS POSITIVOS EN AMBAS CONVERSIONES quedándose para esto con el valor absoluto y entero del
-        //double recibido:
         public static string DecimalBinario(double numero)
         {
             string resultado = "";
-            int numeroEntero = Convert.ToInt32(numero);
+            if(numero > int.MaxValue || numero < int.MinValue)
+            {
+                return "Valor inválido";
+            }
+            int numeroEntero = Convert.ToInt32(Math.Abs(numero));
             while (numeroEntero != 0)
             {
                 if (numeroEntero % 2 == 0)
@@ -73,6 +94,11 @@ namespace Entidades
 
             return resultado;
         }
+        /// <summary>
+        /// Verifica que un string este compuesto solo por 0 y 1.
+        /// </summary>
+        /// <param name="binario"></param>
+        /// <returns></returns>
         private static bool EsBinario(string binario)
         {
             bool isOk = true;
@@ -85,21 +111,6 @@ namespace Entidades
             }
             return isOk;
         }
-        public Operando()
-        {
-            this.numero = 0;
-        }
-
-        public Operando(double numero) : this()
-        {
-            this.numero = numero;
-        }
-
-        public Operando(string strNumero) : this()
-        {
-            Numero = strNumero;
-        }
-
         public static double operator -(Operando n1, Operando n2)
         {
             return n1.numero - n2.numero;
@@ -120,6 +131,11 @@ namespace Entidades
         {
             return n1.numero + n2.numero;
         }
+        /// <summary>
+        /// Verifica que los operando sean numeros, caso contrario retorna 0.
+        /// </summary>
+        /// <param name="numero"></param>
+        /// <returns></returns>
         private double ValidarOperando(string numero)
         {
             if(double.TryParse(numero, out double numeroDouble))
@@ -131,6 +147,5 @@ namespace Entidades
                 return 0;
             }
         }
-
     }
 }

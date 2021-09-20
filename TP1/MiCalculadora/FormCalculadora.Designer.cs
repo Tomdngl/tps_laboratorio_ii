@@ -56,7 +56,6 @@ namespace MiCalculadora
             this.cmbOperador.Name = "cmbOperador";
             this.cmbOperador.Size = new System.Drawing.Size(60, 23);
             this.cmbOperador.TabIndex = 1;
-            this.cmbOperador.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // txtNumero1
             // 
@@ -110,7 +109,7 @@ namespace MiCalculadora
             this.btnConvertirABinario.TabIndex = 7;
             this.btnConvertirABinario.Text = "Convetir a Binario";
             this.btnConvertirABinario.UseVisualStyleBackColor = true;
-            this.btnConvertirABinario.Click += new System.EventHandler(this.button4_Click);
+            this.btnConvertirABinario.Click += new System.EventHandler(this.btnConvertirABinario_Click);
             // 
             // btnConvertirADecimal
             // 
@@ -120,6 +119,7 @@ namespace MiCalculadora
             this.btnConvertirADecimal.TabIndex = 8;
             this.btnConvertirADecimal.Text = "Convertir a Decimal";
             this.btnConvertirADecimal.UseVisualStyleBackColor = true;
+            this.btnConvertirADecimal.Click += new System.EventHandler(this.btnConvertirADecimal_Click);
             // 
             // lstOperaciones
             // 
@@ -140,7 +140,6 @@ namespace MiCalculadora
             this.lblResultado.TabIndex = 9;
             this.lblResultado.Text = "0";
             this.lblResultado.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.lblResultado.Click += new System.EventHandler(this.lblResultado_Click);
             // 
             // contextMenuStrip1
             // 
