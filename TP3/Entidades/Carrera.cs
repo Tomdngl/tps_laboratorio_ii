@@ -8,10 +8,8 @@ namespace Entidades
 {
     public class Carrera : Juego, IJugable
     {
-        protected List<Alumno> participantes;
-        public Carrera(int puntos, Profesor responsable, string identificador) : base(Equipo.Indefinido, puntos)
+        public Carrera(int puntos, Profesor responsable, string identificador) : base(Equipo.Indefinido)
         {
-            this.mvp = null;
             this.responsable = responsable;
             this.identificador = identificador;
             participantes = new List<Alumno>();
@@ -37,6 +35,7 @@ namespace Entidades
             if (ganador != Equipo.Indefinido && CheckLista())
             {
                 this.ganador = ganador;
+                this.puntos = puntos;
                 return true;
             }
             return false;
@@ -66,50 +65,13 @@ namespace Entidades
             }
             return false;
         }
-        public override Alumno AsignarMvp(Alumno mvp)
-        {
-            this.mvp = mvp;
-            return mvp;
-        }
 
-        //Por si hacen trampa, agregar mas tarde
-        public Alumno InvalidarAlumno()
-        {
-            throw new NotImplementedException();
-        }
-        public static bool operator +(Carrera c, Alumno a)
-        {
-            if(!c.participantes.Contains(a))
-            {
-                c.participantes.Add(a);
-                return true;
-            }
-            return false;
-        }
-
-        public static bool operator -(Carrera c, Alumno a)
-        {
-            if (c.participantes.Contains(a))
-            {
-                c.participantes.Remove(a);
-                return true;
-            }
-            return false;
-        }
-        public bool Agregar(Alumno alumno)
-        {
-            return this + alumno;
-        }
-
-        public bool Remover(Alumno alumno)
-        {
-            return this - alumno;
-        }
         public void OrdenarPorEquipos()
         {
             this.participantes = this.participantes.OrderBy(alumno => alumno.Equipo).ToList();
         }
-        public override string ToString()
+
+        public override string VerResultado()
         {
             StringBuilder sb = new StringBuilder();
             sb.Append($"En esta carrera participaron:{Environment.NewLine}");
@@ -120,6 +82,12 @@ namespace Entidades
             sb.AppendLine($"Gano el equipo: {this.ganador}");
             sb.AppendLine($"Los puntos otorgados por este juego son: {this.Puntos}");
 
+            return sb.ToString();
+        }
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append($"{this.Id}");
             return sb.ToString();
         }
     }

@@ -8,11 +8,9 @@ namespace Entidades
 {
     public class Lanzamiento : Juego, IJugable
     {
-        protected List<Alumno> participantes;
         protected int aciertosGanador;
-        public Lanzamiento(int puntos, Profesor responsable, string identificador) : base(Equipo.Indefinido, puntos)
+        public Lanzamiento(int puntos, Profesor responsable, string identificador) : base(Equipo.Indefinido)
         {
-            this.mvp = null;
             this.responsable = responsable;
             this.identificador = identificador;
             participantes = new List<Alumno>();
@@ -71,46 +69,12 @@ namespace Entidades
             }
             return false;
         }
-        public Alumno InvalidarAlumno()
-        {
-            throw new NotImplementedException();
-        }
-
-        public static bool operator +(Lanzamiento l, Alumno a)
-        {
-            if (!l.participantes.Contains(a))
-            {
-                l.participantes.Add(a);
-                return true;
-            }
-            return false;
-        }
-
-        public static bool operator -(Lanzamiento l, Alumno a)
-        {
-            if (l.participantes.Contains(a))
-            {
-                l.participantes.Remove(a);
-                return true;
-            }
-            return false;
-        }
-
-        public bool Agregar(Alumno alumno)
-        {
-            return this + alumno;
-        }
-
-        public bool Remover(Alumno alumno)
-        {
-            return this - alumno;
-        }
         public void OrdenarPorEquipos()
         {
             this.participantes = this.participantes.OrderBy(alumno => alumno.Equipo).ToList();
         }
 
-        public override string ToString()
+        public override string VerResultado()
         {
             StringBuilder sb = new StringBuilder();
             sb.Append($"En este lanzamiento participaron:{Environment.NewLine}");
@@ -121,6 +85,12 @@ namespace Entidades
             sb.AppendLine($"Gano el equipo: {this.ganador}");
             sb.AppendLine($"Los puntos otorgados por este juego son: {this.Puntos}");
 
+            return sb.ToString();
+        }
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append($"{this.Id}");
             return sb.ToString();
         }
 

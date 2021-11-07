@@ -9,14 +9,14 @@ namespace Entidades
     public abstract class Juego
     {
         protected Equipo ganador;
+        public List<Alumno> participantes;
         protected int puntos;
         protected Profesor responsable;
-        protected Alumno mvp;
         protected string identificador;
-        public Juego(Equipo ganador, int puntos)
+        public Juego(Equipo ganador)
         {
             this.ganador = Equipo.Indefinido;
-            this.puntos = puntos;
+            this.puntos = 0;
             this.responsable = null;
         }
         public abstract int Puntos
@@ -41,10 +41,35 @@ namespace Entidades
             }
             return false;
         }
-        public virtual Alumno AsignarMvp(Alumno mvp)
+
+        public abstract string VerResultado();
+
+        public static bool operator +(Juego j, Alumno a)
         {
-            this.mvp = mvp;
-            return mvp;
+            if (!j.participantes.Contains(a))
+            {
+                j.participantes.Add(a);
+                return true;
+            }
+            return false;
+        }
+
+        public static bool operator -(Juego j, Alumno a)
+        {
+            if (j.participantes.Contains(a))
+            {
+                j.participantes.Remove(a);
+                return true;
+            }
+            return false;
+        }
+        public bool Agregar(Alumno alumno)
+        {
+            return this + alumno;
+        }
+        public bool Remover(Alumno alumno)
+        {
+            return this - alumno;
         }
     }
 }
