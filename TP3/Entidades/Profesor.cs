@@ -16,5 +16,10 @@ namespace Entidades
             this.idColegio = idColegio;
             this.materia = materia;
         }
+
+        public override string ToString()
+        {
+            return this.nombre + ' ' + this.apellido;
+        }
     }
 }

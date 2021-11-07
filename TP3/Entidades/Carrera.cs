@@ -9,10 +9,11 @@ namespace Entidades
     public class Carrera : Juego, IJugable
     {
         protected List<Alumno> participantes;
-        public Carrera(int puntos, Persona responsable) : base(Equipo.Indefinido, puntos)
+        public Carrera(int puntos, Profesor responsable, string identificador) : base(Equipo.Indefinido, puntos)
         {
             this.mvp = null;
             this.responsable = responsable;
+            this.identificador = identificador;
             participantes = new List<Alumno>();
         }
 

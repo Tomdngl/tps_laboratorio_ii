@@ -10,10 +10,11 @@ namespace Entidades
     {
         protected List<Alumno> participantes;
         protected int aciertosGanador;
-        public Lanzamiento(int puntos, Persona responsable) : base(Equipo.Indefinido, puntos)
+        public Lanzamiento(int puntos, Profesor responsable, string identificador) : base(Equipo.Indefinido, puntos)
         {
             this.mvp = null;
             this.responsable = responsable;
+            this.identificador = identificador;
             participantes = new List<Alumno>();
         }
         public bool Jugar(int aciertosRojo, int aciertosVerde)
@@ -38,7 +39,6 @@ namespace Entidades
             }
             return false;
         }
-
         public override int Puntos
         {
             get

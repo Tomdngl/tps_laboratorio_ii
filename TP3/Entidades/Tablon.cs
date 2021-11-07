@@ -6,9 +6,18 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    static public class Tablon<T> where T : Juego
+    static public class Tablon
     {
-        static public List<T> juegos;
+        static public List<Juego> juegos;
+        static public List<Profesor> profesores;
+        static public List<Alumno> alumnos;
+
+        static Tablon()
+        {
+            juegos = new List<Juego>();
+            profesores = new List<Profesor>();
+            alumnos = new List<Alumno>();
+        }
 
         //Metodos de conteo, filtrado y creacion de estadisticas
     }

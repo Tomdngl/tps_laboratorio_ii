@@ -10,22 +10,27 @@ namespace Entidades
     {
         protected Equipo ganador;
         protected int puntos;
-        protected Persona responsable;
+        protected Profesor responsable;
         protected Alumno mvp;
-
-
+        protected string identificador;
         public Juego(Equipo ganador, int puntos)
         {
             this.ganador = Equipo.Indefinido;
             this.puntos = puntos;
             this.responsable = null;
         }
-
         public abstract int Puntos
         {
             get;
         }
 
+        public string Id
+        {
+            get
+            {
+                return this.identificador;
+            }
+        }
         public virtual bool Jugar(Equipo ganador, int puntos)
         {
             if (ganador != Equipo.Indefinido)
@@ -36,7 +41,6 @@ namespace Entidades
             }
             return false;
         }
-
         public virtual Alumno AsignarMvp(Alumno mvp)
         {
             this.mvp = mvp;
