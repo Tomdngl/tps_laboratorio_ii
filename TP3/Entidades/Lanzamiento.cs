@@ -13,12 +13,14 @@ namespace Entidades
         {
             this.responsable = responsable;
             this.identificador = identificador;
+            this.puntos = puntos;
             participantes = new List<Alumno>();
         }
-        public bool Jugar(int aciertosRojo, int aciertosVerde)
+        public override bool Jugar(int aciertosRojo, int aciertosVerde, int puntos)
         {
             if (CheckLista())
             {
+                this.puntos = puntos;
                 if(aciertosRojo > aciertosVerde)
                 {
                     this.ganador = Equipo.Rojo;

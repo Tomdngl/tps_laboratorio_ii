@@ -10,11 +10,13 @@ namespace Entidades
     {
         protected int legajo;
         protected Equipo equipo;
+        protected Curso curso;
 
-        public Alumno(string nombre, string apellido, string dni, int legajo, Equipo equipo):base(nombre, apellido, dni)
+        public Alumno(string nombre, string apellido, string dni, int legajo, Curso curso,Equipo equipo):base(nombre, apellido, dni)
         {
             this.legajo = legajo;
             this.equipo = equipo;
+            this.curso = curso;
         }
 
         public Equipo Equipo

@@ -26,3 +26,8 @@ C:\Users\Tomas Dangelo\Documents\Tom\Facultad\Primer año\Segundo cuatrimestre\t
 C:\Users\Tomas Dangelo\Documents\Tom\Facultad\Primer año\Segundo cuatrimestre\tps_laboratorio_ii\TP3\Rojo_vs_Verde\obj\Debug\net5.0-windows\Evento_deportivo.AgregarPersonas.resources
 C:\Users\Tomas Dangelo\Documents\Tom\Facultad\Primer año\Segundo cuatrimestre\tps_laboratorio_ii\TP3\Rojo_vs_Verde\obj\Debug\net5.0-windows\Evento_deportivo.Estadisticas.resources
 C:\Users\Tomas Dangelo\Documents\Tom\Facultad\Primer año\Segundo cuatrimestre\tps_laboratorio_ii\TP3\Rojo_vs_Verde\obj\Debug\net5.0-windows\Evento_deportivo.Jugar_Carrera.resources
+C:\Users\Tomas Dangelo\Documents\Tom\Facultad\Primer año\Segundo cuatrimestre\tps_laboratorio_ii\TP3\Rojo_vs_Verde\obj\Debug\net5.0-windows\Evento_deportivo.Agregar_Alumno.resources
+C:\Users\Tomas Dangelo\Documents\Tom\Facultad\Primer año\Segundo cuatrimestre\tps_laboratorio_ii\TP3\Rojo_vs_Verde\obj\Debug\net5.0-windows\Evento_deportivo.Agregar_Profesor.resources
+C:\Users\Tomas Dangelo\Documents\Tom\Facultad\Primer año\Segundo cuatrimestre\tps_laboratorio_ii\TP3\Rojo_vs_Verde\obj\Debug\net5.0-windows\Evento_deportivo.Remover_Alumno.resources
+C:\Users\Tomas Dangelo\Documents\Tom\Facultad\Primer año\Segundo cuatrimestre\tps_laboratorio_ii\TP3\Rojo_vs_Verde\obj\Debug\net5.0-windows\Evento_deportivo.Remover_Profesor.resources
+C:\Users\Tomas Dangelo\Documents\Tom\Facultad\Primer año\Segundo cuatrimestre\tps_laboratorio_ii\TP3\Rojo_vs_Verde\obj\Debug\net5.0-windows\Evento_deportivo.Jugar_Lanzamiento.resources

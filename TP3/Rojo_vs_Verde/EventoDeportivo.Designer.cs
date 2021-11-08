@@ -30,29 +30,30 @@ namespace Evento_deportivo
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EventoDeportivo));
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_Personas = new System.Windows.Forms.Button();
             this.btn_PrepararJuego = new System.Windows.Forms.Button();
             this.btn_Jugar = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btn_Estadisticas = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // btn_Personas
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.BackColor = System.Drawing.Color.Lavender;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button1.FlatAppearance.BorderSize = 2;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(74, 328);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(289, 76);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Administrar personas";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btn_Personas.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Personas.BackColor = System.Drawing.Color.Lavender;
+            this.btn_Personas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btn_Personas.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btn_Personas.FlatAppearance.BorderSize = 2;
+            this.btn_Personas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Personas.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_Personas.Location = new System.Drawing.Point(74, 328);
+            this.btn_Personas.Name = "btn_Personas";
+            this.btn_Personas.Size = new System.Drawing.Size(289, 76);
+            this.btn_Personas.TabIndex = 0;
+            this.btn_Personas.Text = "Administrar personas";
+            this.btn_Personas.UseVisualStyleBackColor = false;
+            this.btn_Personas.Click += new System.EventHandler(this.btn_Personas_Click);
             // 
             // btn_PrepararJuego
             // 
@@ -88,21 +89,22 @@ namespace Evento_deportivo
             this.btn_Jugar.UseVisualStyleBackColor = false;
             this.btn_Jugar.Click += new System.EventHandler(this.btn_Jugar_Click);
             // 
-            // button4
+            // btn_Estadisticas
             // 
-            this.button4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button4.BackColor = System.Drawing.Color.Lavender;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button4.FlatAppearance.BorderSize = 2;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button4.Location = new System.Drawing.Point(428, 328);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(289, 76);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Estadisticas";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btn_Estadisticas.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Estadisticas.BackColor = System.Drawing.Color.Lavender;
+            this.btn_Estadisticas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btn_Estadisticas.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btn_Estadisticas.FlatAppearance.BorderSize = 2;
+            this.btn_Estadisticas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Estadisticas.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_Estadisticas.Location = new System.Drawing.Point(428, 328);
+            this.btn_Estadisticas.Name = "btn_Estadisticas";
+            this.btn_Estadisticas.Size = new System.Drawing.Size(289, 76);
+            this.btn_Estadisticas.TabIndex = 3;
+            this.btn_Estadisticas.Text = "Estadisticas";
+            this.btn_Estadisticas.UseVisualStyleBackColor = false;
+            this.btn_Estadisticas.Click += new System.EventHandler(this.btn_Estadisticas_Click);
             // 
             // pictureBox1
             // 
@@ -121,10 +123,10 @@ namespace Evento_deportivo
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(784, 461);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btn_Estadisticas);
             this.Controls.Add(this.btn_Jugar);
             this.Controls.Add(this.btn_PrepararJuego);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_Personas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -139,10 +141,10 @@ namespace Evento_deportivo
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_Personas;
         private System.Windows.Forms.Button btn_PrepararJuego;
         private System.Windows.Forms.Button btn_Jugar;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btn_Estadisticas;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

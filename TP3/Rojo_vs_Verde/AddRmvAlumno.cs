@@ -64,5 +64,10 @@ namespace Evento_deportivo
         {
             this.Close();
         }
+
+        private void lst_alumnos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

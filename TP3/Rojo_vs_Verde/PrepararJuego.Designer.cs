@@ -33,11 +33,10 @@ namespace Evento_deportivo
             this.cmb_Juego = new System.Windows.Forms.ComboBox();
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.btn_Listo = new System.Windows.Forms.Button();
-            this.cmb_Profesor = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_Identificador = new System.Windows.Forms.TextBox();
             this.lbl_Identificador = new System.Windows.Forms.Label();
+            this.lst_profesores = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // cmb_Juego
@@ -64,7 +63,7 @@ namespace Evento_deportivo
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(315, 42);
             this.btn_Cancelar.TabIndex = 3;
-            this.btn_Cancelar.Text = "Cancelar";
+            this.btn_Cancelar.Text = "Volver";
             this.btn_Cancelar.UseVisualStyleBackColor = false;
             this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
             // 
@@ -85,28 +84,6 @@ namespace Evento_deportivo
             this.btn_Listo.UseVisualStyleBackColor = false;
             this.btn_Listo.Click += new System.EventHandler(this.btn_Listo_Click);
             // 
-            // cmb_Profesor
-            // 
-            this.cmb_Profesor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_Profesor.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cmb_Profesor.FormattingEnabled = true;
-            this.cmb_Profesor.Location = new System.Drawing.Point(53, 236);
-            this.cmb_Profesor.Name = "cmb_Profesor";
-            this.cmb_Profesor.Size = new System.Drawing.Size(257, 36);
-            this.cmb_Profesor.TabIndex = 5;
-            this.cmb_Profesor.SelectedIndexChanged += new System.EventHandler(this.cmb_Profesor_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(53, 205);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 28);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Profesor:";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -121,7 +98,7 @@ namespace Evento_deportivo
             // txt_Identificador
             // 
             this.txt_Identificador.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txt_Identificador.Location = new System.Drawing.Point(486, 99);
+            this.txt_Identificador.Location = new System.Drawing.Point(53, 236);
             this.txt_Identificador.MaxLength = 17;
             this.txt_Identificador.Name = "txt_Identificador";
             this.txt_Identificador.Size = new System.Drawing.Size(257, 37);
@@ -133,11 +110,20 @@ namespace Evento_deportivo
             this.lbl_Identificador.AutoSize = true;
             this.lbl_Identificador.BackColor = System.Drawing.Color.Transparent;
             this.lbl_Identificador.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbl_Identificador.Location = new System.Drawing.Point(486, 68);
+            this.lbl_Identificador.Location = new System.Drawing.Point(53, 205);
             this.lbl_Identificador.Name = "lbl_Identificador";
             this.lbl_Identificador.Size = new System.Drawing.Size(167, 28);
             this.lbl_Identificador.TabIndex = 9;
             this.lbl_Identificador.Text = "Identificador:";
+            // 
+            // lst_profesores
+            // 
+            this.lst_profesores.FormattingEnabled = true;
+            this.lst_profesores.ItemHeight = 15;
+            this.lst_profesores.Location = new System.Drawing.Point(333, 12);
+            this.lst_profesores.Name = "lst_profesores";
+            this.lst_profesores.Size = new System.Drawing.Size(439, 319);
+            this.lst_profesores.TabIndex = 19;
             // 
             // PrepararJuego
             // 
@@ -145,11 +131,10 @@ namespace Evento_deportivo
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(784, 461);
+            this.Controls.Add(this.lst_profesores);
             this.Controls.Add(this.lbl_Identificador);
             this.Controls.Add(this.txt_Identificador);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.cmb_Profesor);
             this.Controls.Add(this.btn_Listo);
             this.Controls.Add(this.btn_Cancelar);
             this.Controls.Add(this.cmb_Juego);
@@ -170,10 +155,9 @@ namespace Evento_deportivo
         private System.Windows.Forms.ComboBox cmb_Juego;
         private System.Windows.Forms.Button btn_Cancelar;
         private System.Windows.Forms.Button btn_Listo;
-        private System.Windows.Forms.ComboBox cmb_Profesor;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_Identificador;
         private System.Windows.Forms.Label lbl_Identificador;
+        private System.Windows.Forms.ListBox lst_profesores;
     }
 }

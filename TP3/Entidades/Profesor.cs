@@ -19,7 +19,9 @@ namespace Entidades
 
         public override string ToString()
         {
-            return this.nombre + ' ' + this.apellido;
+            StringBuilder sb = new StringBuilder();
+            sb.Append($"{base.ToString()} Legajo: {this.idColegio} Materia: {this.materia}");
+            return sb.ToString();
         }
     }
 }

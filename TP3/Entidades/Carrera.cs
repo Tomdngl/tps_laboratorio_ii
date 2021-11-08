@@ -12,6 +12,7 @@ namespace Entidades
         {
             this.responsable = responsable;
             this.identificador = identificador;
+            this.puntos = puntos;
             participantes = new List<Alumno>();
         }
 

@@ -64,7 +64,8 @@ namespace Evento_deportivo
             }
             else if((Juego)lst_Juegos.SelectedItem is Lanzamiento)
             {
-
+                Jugar_Lanzamiento jugar_Lanzamiento = new Jugar_Lanzamiento();
+                jugar_Lanzamiento.Show();
             }
             else
             {

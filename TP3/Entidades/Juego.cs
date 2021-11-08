@@ -31,6 +31,15 @@ namespace Entidades
                 return this.identificador;
             }
         }
+
+        public Equipo Ganador
+        {
+            get
+            {
+                return this.ganador;
+            }
+        }
+
         public virtual bool Jugar(Equipo ganador, int puntos)
         {
             if (ganador != Equipo.Indefinido)
@@ -40,6 +49,11 @@ namespace Entidades
                 return true;
             }
             return false;
+        }
+
+        public virtual bool Jugar(int aciertosRojo, int aciertosVerde, int puntos)
+        {
+            return true;
         }
 
         public abstract string VerResultado();

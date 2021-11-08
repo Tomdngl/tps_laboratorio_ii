@@ -24,7 +24,7 @@ namespace Evento_deportivo
             cmb_Juego.Items.Add("Lanzamiento");
             foreach (Profesor p in Tablon.profesores)
             {
-                cmb_Profesor.Items.Add(p);
+                lst_profesores.Items.Add(p);
             }
         }
 
@@ -33,28 +33,37 @@ namespace Evento_deportivo
 
         }
 
-        private void cmb_Profesor_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btn_Listo_Click(object sender, EventArgs e)
         {
-            if(cmb_Juego.Text == "Carrera" && cmb_Profesor.SelectedItem != null)
+            try
             {
-                Tablon.juegos.Add(new Carrera(50, (Profesor)cmb_Profesor.SelectedItem, txt_Identificador.Text));
-                MessageBox.Show("Se ha añadido una carrera.",
-                                 "Notificacion.",
-                                 MessageBoxButtons.OK,
-                                 MessageBoxIcon.Information);
+                if(cmb_Juego.Text == "Carrera" && lst_profesores.SelectedItem != null && txt_Identificador.Text.Length > 0)
+                {
+                    Tablon.juegos.Add(new Carrera(50, (Profesor)lst_profesores.SelectedItem, txt_Identificador.Text));
+                    MessageBox.Show("Se ha añadido una carrera.",
+                                     "Notificacion.",
+                                     MessageBoxButtons.OK,
+                                     MessageBoxIcon.Information);
+                }
+                else if(cmb_Juego.Text == "Lanzamiento" && lst_profesores.SelectedItem != null)
+                {
+                    Tablon.juegos.Add(new Lanzamiento(10, (Profesor)lst_profesores.SelectedItem, txt_Identificador.Text));
+                    MessageBox.Show("Se ha añadido un lanzamiento.",
+                                     "Notificacion.",
+                                     MessageBoxButtons.OK,
+                                     MessageBoxIcon.Information);
+                }
+                else
+                {
+                    throw new Exception();
+                }
             }
-            else if(cmb_Juego.Text == "Lanzamiento" && cmb_Profesor.SelectedItem != null)
+            catch (Exception)
             {
-                Tablon.juegos.Add(new Lanzamiento(10, (Profesor)cmb_Profesor.SelectedItem, txt_Identificador.Text));
-                MessageBox.Show("Se ha añadido un lanzamiento.",
-                                 "Notificacion.",
-                                 MessageBoxButtons.OK,
-                                 MessageBoxIcon.Information);
+                MessageBox.Show("Error, revise los parámetros.",
+                 "Error.",
+                 MessageBoxButtons.OK,
+                 MessageBoxIcon.Error);
             }
         }
         private void txt_Identificador_TextChanged(object sender, EventArgs e)

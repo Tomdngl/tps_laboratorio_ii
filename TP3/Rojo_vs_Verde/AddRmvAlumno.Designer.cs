@@ -45,6 +45,7 @@ namespace Evento_deportivo
             this.lst_alumnos.Name = "lst_alumnos";
             this.lst_alumnos.Size = new System.Drawing.Size(473, 214);
             this.lst_alumnos.TabIndex = 0;
+            this.lst_alumnos.SelectedIndexChanged += new System.EventHandler(this.lst_alumnos_SelectedIndexChanged);
             // 
             // btn_Add
             // 

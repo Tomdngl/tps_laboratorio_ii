@@ -14,3 +14,19 @@ public enum Materia
     EducacionFisica,
     Ingles
 }
+
+public enum Curso
+{
+    Primero_A,
+    Primero_B,
+    Segundo_A,
+    Segundo_B,
+    Tercero_A,
+    Tercero_B,
+    Cuarto_A,
+    Cuarto_B,
+    Quinto_A,
+    Quinto_B,
+    Sexto_A,
+    Sexto_B
+}

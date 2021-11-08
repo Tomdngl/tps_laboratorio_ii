@@ -20,5 +20,17 @@ namespace Entidades
 
             return true;
         }
+
+        public static bool SoloCaracteres(this string str)
+        {
+            foreach (char c in str)
+            {
+                if (!char.IsLetter(c))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }
