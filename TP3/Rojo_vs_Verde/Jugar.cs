@@ -18,7 +18,12 @@ namespace Evento_deportivo
         {
             InitializeComponent();
         }
-
+        
+        /// <summary>
+        /// Carga los juegos a la listbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Jugar_Load(object sender, EventArgs e)
         {
             foreach (Juego juego in Tablon.juegos)
@@ -30,6 +35,12 @@ namespace Evento_deportivo
         {
 
         }
+
+        /// <summary>
+        /// Abre el form para añadir/remover participantes del juego seleccionado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_AddRmv_Click(object sender, EventArgs e)
         {
             try
@@ -54,6 +65,11 @@ namespace Evento_deportivo
             }
             
         }
+        /// <summary>
+        /// Permite cargar los resultados del juego
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_cargarResultado_Click(object sender, EventArgs e)
         {
             selectedItem = (Juego)lst_Juegos.SelectedItem;
@@ -75,7 +91,11 @@ namespace Evento_deportivo
                  MessageBoxIcon.Information);
             }
         }
-
+        /// <summary>
+        /// Muestra resultados del juego seleccionado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_verResultado_Click(object sender, EventArgs e)
         {
             try
@@ -94,7 +114,11 @@ namespace Evento_deportivo
                  MessageBoxIcon.Information);
             }
         }
-
+        /// <summary>
+        /// Elimina un juego del sistema tras una confirmacion previa
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Eliminar_Click(object sender, EventArgs e)
         {
             selectedItem = (Juego)lst_Juegos.SelectedItem;
@@ -130,6 +154,11 @@ namespace Evento_deportivo
                  MessageBoxIcon.Information);
             }
         }
+        /// <summary>
+        /// Cierra el form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_volver_Click(object sender, EventArgs e)
         {
             this.Close();

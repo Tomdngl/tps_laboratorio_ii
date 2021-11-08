@@ -21,6 +21,14 @@ namespace Entidades
             this.puntos = puntos;
             Participantes = new List<Alumno>();
         }
+
+        /// <summary>
+        /// Establece un ganador en base a los aciertos de los equipos y los puntos por cada uno de estos
+        /// </summary>
+        /// <param name="aciertosRojo"></param>
+        /// <param name="aciertosVerde"></param>
+        /// <param name="puntos"></param>
+        /// <returns></returns>
         public override bool Jugar(int aciertosRojo, int aciertosVerde, int puntos)
         {
             if (CheckLista())
@@ -59,6 +67,10 @@ namespace Entidades
 
         public int AciertosGanador { get => aciertosGanador; set => aciertosGanador = value; }
 
+        /// <summary>
+        /// Revisa que haya por lo menos un participante de cada equipo y sean parejos
+        /// </summary>
+        /// <returns></returns>
         private bool CheckLista()
         {
             bool hayVerde = false;
@@ -87,7 +99,11 @@ namespace Entidades
         {
             this.Participantes = this.Participantes.OrderBy(alumno => alumno.Equipo).ToList();
         }
-
+        
+        /// <summary>
+        /// Devuelve un string con información sobre el lanzamiento
+        /// </summary>
+        /// <returns></returns>
         public override string VerResultado()
         {
             StringBuilder sb = new StringBuilder();
@@ -101,6 +117,11 @@ namespace Entidades
 
             return sb.ToString();
         }
+
+        /// <summary>
+        /// Devuelve el identificador del juego
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

@@ -16,7 +16,11 @@ namespace Evento_deportivo
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Carga los profesores existentes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Remover_Profesor_Load(object sender, EventArgs e)
         {
             foreach (Profesor profesor in Tablon.profesores)
@@ -24,6 +28,11 @@ namespace Evento_deportivo
                 lst_profesores.Items.Add(profesor);
             }
         }
+        /// <summary>
+        /// Remueve el profesor seleccionado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Rmv_Click(object sender, EventArgs e)
         {
             try
@@ -36,7 +45,11 @@ namespace Evento_deportivo
 
             }
         }
-
+        /// <summary>
+        /// Cierra el form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Volver_Click(object sender, EventArgs e)
         {
             this.Close();

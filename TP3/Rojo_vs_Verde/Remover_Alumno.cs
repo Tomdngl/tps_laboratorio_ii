@@ -17,7 +17,11 @@ namespace Evento_deportivo
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Carga los alumnos existentes a la lista
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Remover_Alumno_Load(object sender, EventArgs e)
         {
             foreach (Alumno a in Tablon.alumnos)
@@ -30,7 +34,11 @@ namespace Evento_deportivo
         {
 
         }
-
+        /// <summary>
+        /// Remueve el alumno seleccionado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Rmv_Click(object sender, EventArgs e)
         {
             try
@@ -46,7 +54,11 @@ namespace Evento_deportivo
                  MessageBoxIcon.Error);
             }
         }
-
+        /// <summary>
+        /// Cierra el formulario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Volver_Click(object sender, EventArgs e)
         {
             this.Close();

@@ -18,6 +18,11 @@ namespace Evento_deportivo
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Carga datos a la lista de alumnos y participantes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddRmvAlumno_Load(object sender, EventArgs e)
         {
             foreach (Alumno a in Tablon.alumnos)
@@ -31,6 +36,11 @@ namespace Evento_deportivo
             }
         }
 
+        /// <summary>
+        /// Agrega un alumno al juego
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Add_Click(object sender, EventArgs e)
         {
             try
@@ -54,12 +64,22 @@ namespace Evento_deportivo
             }
         }
 
+        /// <summary>
+        /// Elimina un alumno del juego
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Rmv_Click(object sender, EventArgs e)
         {
             Jugar.selectedItem.Remover((Alumno)lst_alumnos.SelectedItem);
             lst_participantes.Items.Remove((Alumno)lst_alumnos.SelectedItem);
         }
 
+        /// <summary>
+        /// Cierra el form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Volver_Click(object sender, EventArgs e)
         {
             this.Close();

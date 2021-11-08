@@ -18,11 +18,21 @@ namespace Evento_deportivo
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Carga datos a la combobox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Agregar_Profesor_Load(object sender, EventArgs e)
         {
             cmb_Materia.DataSource = Enum.GetValues(typeof(Materia));
         }
 
+        /// <summary>
+        /// Verifica que todos los parametros esten y sean correctos y añade el profesor al sistema
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Listo_Click(object sender, EventArgs e)
         {
             try
@@ -49,6 +59,11 @@ namespace Evento_deportivo
             }
         }
 
+        /// <summary>
+        /// Cierra el form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Cancelar_Click(object sender, EventArgs e)
         {
             this.Close();

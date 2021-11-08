@@ -24,6 +24,10 @@ namespace Entidades
             this.Materia = materia;
         }
 
+        /// <summary>
+        /// Devuelve un string con datos del profesor.
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

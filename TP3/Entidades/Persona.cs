@@ -27,6 +27,10 @@ namespace Entidades
             this.Dni = dni;
         }
 
+        /// <summary>
+        /// Devuelve informacion basica sobre la persona.
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

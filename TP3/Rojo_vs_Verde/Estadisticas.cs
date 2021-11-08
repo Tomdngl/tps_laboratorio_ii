@@ -23,6 +23,11 @@ namespace Evento_deportivo
 
         }
 
+        /// <summary>
+        /// Guarda las listas del tablon
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_GuardarTablon_Click(object sender, EventArgs e)
         {
             Archivos.SerializarAXml<List<Juego>>(EventoDeportivo.tablonJuegos, Tablon.juegos);
@@ -35,6 +40,11 @@ namespace Evento_deportivo
              MessageBoxIcon.Information);
         }
 
+        /// <summary>
+        /// Carga las listas guardadas en archivos xml
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_CargarTablon_Click(object sender, EventArgs e)
         {
             DialogResult respuesta = MessageBox.Show("¿Estas seguro? Los datos actuales se sobreescribiran.", "Alerta", MessageBoxButtons.YesNo);
@@ -64,6 +74,55 @@ namespace Evento_deportivo
                      MessageBoxIcon.Information);
                 }
             }
+        }
+
+        /// <summary>
+        /// Filtra la lista de juegos y guarda un archivo con las victorias del equipo rojo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_VictoriasRojo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<Juego> victoriasRojo = new List<Juego>();
+                Tablon.FiltrarRojo(victoriasRojo);
+                string fecha = DateTime.Now.ToString("MMMM dd HH-mm-ss");
+                string ruta = Path.Combine(EventoDeportivo.applicationData, $"{fecha}.xml");
+                Archivos.SerializarAXml<List<Juego>>(ruta, Tablon.juegos);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ha ocurrido un error.",
+                 "Notificación.",
+                 MessageBoxButtons.OK,
+                 MessageBoxIcon.Information);
+            }
+        }
+
+        /// <summary>
+        /// Filtra la lista de juegos y guarda un archivo con las victorias del equipo verde
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_VictoriasVerde_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<Juego> victoriasVerde = new List<Juego>();
+                Tablon.FiltrarVerde(victoriasVerde);
+                string fecha = DateTime.Now.ToString("MMMM dd HH-mm-ss");
+                string ruta = Path.Combine(EventoDeportivo.applicationData, $"{fecha}.xml");
+                Archivos.SerializarAXml<List<Juego>>(ruta, Tablon.juegos);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ha ocurrido un error.",
+                 "Notificación.",
+                 MessageBoxButtons.OK,
+                 MessageBoxIcon.Information);
+            }
+
         }
     }
 }

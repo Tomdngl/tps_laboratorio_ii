@@ -17,7 +17,11 @@ namespace Evento_deportivo
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Carga los participantes a la listbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Jugar_Lanzamiento_Load(object sender, EventArgs e)
         {
             foreach (Alumno a in Jugar.selectedItem.Participantes)
@@ -25,7 +29,11 @@ namespace Evento_deportivo
                 lst_participantes.Items.Add(a);
             }
         }
-
+        /// <summary>
+        /// Carga los datos tras confirmar los parametros
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Listo_Click(object sender, EventArgs e)
         {
             if(txt_AciertosRojo.Text.SoloNumeros() && txt_AciertosRojo.Text.Length > 0 && txt_AciertosVerde.Text.SoloNumeros() && txt_AciertosVerde.Text.Length > 0 && txt_puntos.Text.Length > 0)
@@ -53,6 +61,11 @@ namespace Evento_deportivo
                 }
             }
         }
+        /// <summary>
+        /// Cierra el form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
             this.Close();

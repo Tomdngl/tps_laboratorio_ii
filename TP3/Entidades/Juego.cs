@@ -38,6 +38,12 @@ namespace Entidades
         public Equipo Ganador { get => ganador; set => ganador = value; }
         public string Identificador { get => identificador; set => identificador = value; }
 
+        /// <summary>
+        /// Nos permite definir un ganador y los puntos del juego
+        /// </summary>
+        /// <param name="ganador"></param>
+        /// <param name="puntos"></param>
+        /// <returns></returns>
         public virtual bool Jugar(Equipo ganador, int puntos)
         {
             if (ganador != Equipo.Indefinido)
@@ -49,6 +55,13 @@ namespace Entidades
             return false;
         }
 
+        /// <summary>
+        /// Nos permite elegir aciertos en juegos que lo requieran y puntos por cada uno de estos
+        /// </summary>
+        /// <param name="aciertosRojo"></param>
+        /// <param name="aciertosVerde"></param>
+        /// <param name="puntos"></param>
+        /// <returns></returns>
         public virtual bool Jugar(int aciertosRojo, int aciertosVerde, int puntos)
         {
             return true;
@@ -56,6 +69,12 @@ namespace Entidades
 
         public abstract string VerResultado();
 
+        /// <summary>
+        /// Operador que nos permite agregar alumnos a un juego
+        /// </summary>
+        /// <param name="j"></param>
+        /// <param name="a"></param>
+        /// <returns></returns>
         public static bool operator +(Juego j, Alumno a)
         {
             if (!j.Participantes.Contains(a))
@@ -66,6 +85,12 @@ namespace Entidades
             return false;
         }
 
+        /// <summary>
+        /// Operador que nos permite remover alumnos de un juego
+        /// </summary>
+        /// <param name="j"></param>
+        /// <param name="a"></param>
+        /// <returns></returns>
         public static bool operator -(Juego j, Alumno a)
         {
             if (j.Participantes.Contains(a))

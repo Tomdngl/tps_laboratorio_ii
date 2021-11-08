@@ -42,6 +42,12 @@ namespace Entidades
                 puntos = value;
             }
         }
+        /// <summary>
+        /// Permite definir el equipo ganador de la carrera con los puntos correspondientes
+        /// </summary>
+        /// <param name="ganador"></param>
+        /// <param name="puntos"></param>
+        /// <returns></returns>
         public override bool Jugar(Equipo ganador, int puntos)
         {
             if (ganador != Equipo.Indefinido && CheckLista())
@@ -53,6 +59,10 @@ namespace Entidades
             return false;
         }
 
+        /// <summary>
+        /// Verifica que en la lista de participantes haya por lo menos uno de cada equipo y que sean pares
+        /// </summary>
+        /// <returns></returns>
         private bool CheckLista()
         {
             bool hayVerde = false;
@@ -78,11 +88,18 @@ namespace Entidades
             return false;
         }
 
+        /// <summary>
+        /// Permite ordenar la lista por equipos
+        /// </summary>
         public void OrdenarPorEquipos()
         {
             this.Participantes = this.Participantes.OrderBy(alumno => alumno.Equipo).ToList();
         }
 
+        /// <summary>
+        /// Devuelve un string con información sobre la carrera
+        /// </summary>
+        /// <returns></returns>
         public override string VerResultado()
         {
             StringBuilder sb = new StringBuilder();
@@ -96,6 +113,11 @@ namespace Entidades
 
             return sb.ToString();
         }
+
+        /// <summary>
+        /// Devuelve el identificador de la carrera.
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

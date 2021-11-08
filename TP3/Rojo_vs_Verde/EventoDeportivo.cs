@@ -23,6 +23,11 @@ namespace Evento_deportivo
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Hardcodeo de archivos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EventoDeportivo_Load(object sender, EventArgs e)
         {
             Alumno alumno1 = new Alumno("Tomas", "D'Angelo", "44515454", 111238, Curso.Cuarto_A,Equipo.Verde);
@@ -50,24 +55,44 @@ namespace Evento_deportivo
             Tablon.alumnos.Add(alumno5);
         }
 
+        /// <summary>
+        /// Abre el form para preparar juegos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_PrepararJuego_Click(object sender, EventArgs e)
         {
             PrepararJuego prepararJuego = new PrepararJuego();
             prepararJuego.Show();
         }
 
+        /// <summary>
+        /// Abre el form para jugar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Jugar_Click(object sender, EventArgs e)
         {
             Jugar jugar = new Jugar();
             jugar.Show();
         }
 
+        /// <summary>
+        /// Abre el form para administrar personas
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Personas_Click(object sender, EventArgs e)
         {
             AgregarPersonas agregarPersonas = new AgregarPersonas();
             agregarPersonas.Show();
         }
 
+        /// <summary>
+        /// Abre el form de guardado de archivos y filtros
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Estadisticas_Click(object sender, EventArgs e)
         {
             Estadisticas estadisticas = new Estadisticas();

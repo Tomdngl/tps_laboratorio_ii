@@ -60,6 +60,10 @@ namespace Entidades
             }
         }
 
+        /// <summary>
+        /// Devuelve un string con información sobre el alumno.
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

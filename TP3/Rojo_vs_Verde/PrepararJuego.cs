@@ -17,7 +17,11 @@ namespace Evento_deportivo
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Añade elementos a la combobox y carga la lista de profesores
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PrepararJuego_Load(object sender, EventArgs e)
         {
             cmb_Juego.Items.Add("Carrera");
@@ -32,7 +36,11 @@ namespace Evento_deportivo
         {
 
         }
-
+        /// <summary>
+        /// Crea el nuevo juego si los parametros son correctos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Listo_Click(object sender, EventArgs e)
         {
             try
@@ -70,7 +78,11 @@ namespace Evento_deportivo
         {
 
         }
-
+        /// <summary>
+        /// Cierra el form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Cancelar_Click(object sender, EventArgs e)
         {
             this.Close();
