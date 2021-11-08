@@ -19,7 +19,7 @@ namespace Evento_deportivo
         }
         private void Jugar_Carrera_Load(object sender, EventArgs e)
         {
-            foreach (Alumno a in Jugar.selectedItem.participantes)
+            foreach (Alumno a in Jugar.selectedItem.Participantes)
             {
                 lst_participantes.Items.Add(a);
             }

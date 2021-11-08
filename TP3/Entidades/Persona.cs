@@ -12,17 +12,25 @@ namespace Entidades
         protected string apellido;
         protected string dni;
 
+        public string Nombre { get => nombre; set => nombre = value; }
+        public string Apellido { get => apellido; set => apellido = value; }
+        public string Dni { get => dni; set => dni = value; }
+
+        public Persona()
+        {
+
+        }
         internal Persona(string nombre, string apellido, string dni)
         {
-            this.nombre = nombre;
-            this.apellido = apellido;
-            this.dni = dni;
+            this.Nombre = nombre;
+            this.Apellido = apellido;
+            this.Dni = dni;
         }
 
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append($"{this.nombre} {this.apellido} DNI: {this.dni}");
+            sb.Append($"{this.Nombre} {this.Apellido}");
             return sb.ToString();
         }
     }

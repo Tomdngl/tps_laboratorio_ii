@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,10 @@ namespace Evento_deportivo
 {
     public partial class EventoDeportivo : Form
     {
+        public static string applicationData = Application.StartupPath;
+        public static string tablonJuegos = Path.Combine(applicationData, "tablonJuegos.xml");
+        public static string tablonProfesores = Path.Combine(applicationData, "tablonProfesores.xml");
+        public static string tablonAlumnos = Path.Combine(applicationData, "tablonAlumnos.xml");
         public EventoDeportivo()
         {
             InitializeComponent();
@@ -29,6 +34,12 @@ namespace Evento_deportivo
             Profesor profesor = new Profesor("Matias", "Gonzales", "23878650", 125, Materia.EducacionFisica);
             Profesor profesor1 = new Profesor("Ivan", "Gomez", "23274650", 126, Materia.CienciasNaturales);
 
+            Carrera carrera1 = new Carrera(50, profesor, "Carrera 1");
+            Lanzamiento lanzamiento1 = new Lanzamiento(10, profesor, "Lanzamiento 2");
+
+            Tablon.juegos.Add(carrera1);
+            Tablon.juegos.Add(lanzamiento1);
+
             Tablon.profesores.Add(profesor);
             Tablon.profesores.Add(profesor1);
 
@@ -37,7 +48,6 @@ namespace Evento_deportivo
             Tablon.alumnos.Add(alumno3);
             Tablon.alumnos.Add(alumno4);
             Tablon.alumnos.Add(alumno5);
-
         }
 
         private void btn_PrepararJuego_Click(object sender, EventArgs e)

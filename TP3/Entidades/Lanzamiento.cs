@@ -8,13 +8,18 @@ namespace Entidades
 {
     public class Lanzamiento : Juego, IJugable
     {
-        protected int aciertosGanador;
+        private int aciertosGanador;
+
+        public Lanzamiento()
+        {
+                
+        }
         public Lanzamiento(int puntos, Profesor responsable, string identificador) : base(Equipo.Indefinido)
         {
-            this.responsable = responsable;
-            this.identificador = identificador;
+            this.Responsable = responsable;
+            this.Identificador = identificador;
             this.puntos = puntos;
-            participantes = new List<Alumno>();
+            Participantes = new List<Alumno>();
         }
         public override bool Jugar(int aciertosRojo, int aciertosVerde, int puntos)
         {
@@ -23,17 +28,18 @@ namespace Entidades
                 this.puntos = puntos;
                 if(aciertosRojo > aciertosVerde)
                 {
-                    this.ganador = Equipo.Rojo;
-                    this.aciertosGanador = aciertosRojo;
+                    this.Ganador = Equipo.Rojo;
+                    this.AciertosGanador = aciertosRojo;
                 }
                 else if(aciertosVerde > aciertosRojo)
                 {
-                    this.ganador = Equipo.Verde;
-                    this.aciertosGanador = aciertosVerde;
+                    this.Ganador = Equipo.Verde;
+                    this.AciertosGanador = aciertosVerde;
                 }
                 else
                 {
-                    this.ganador = Equipo.Indefinido;
+                    this.Ganador = Equipo.Indefinido;
+                    this.puntos = 0;
                 }
                 return true;
             }
@@ -43,17 +49,23 @@ namespace Entidades
         {
             get
             {
-                return this.aciertosGanador * puntos;
+                return this.AciertosGanador * puntos;
+            }
+            set
+            {
+                puntos = value;
             }
         }
+
+        public int AciertosGanador { get => aciertosGanador; set => aciertosGanador = value; }
 
         private bool CheckLista()
         {
             bool hayVerde = false;
             bool hayRojo = false;
-            if (this.participantes.Count >= 2 && this.participantes.Count % 2 == 0)
+            if (this.Participantes.Count >= 2 && this.Participantes.Count % 2 == 0)
             {
-                foreach (Alumno alumno in this.participantes)
+                foreach (Alumno alumno in this.Participantes)
                 {
                     if (alumno.Equipo == Equipo.Rojo)
                     {
@@ -73,18 +85,18 @@ namespace Entidades
         }
         public void OrdenarPorEquipos()
         {
-            this.participantes = this.participantes.OrderBy(alumno => alumno.Equipo).ToList();
+            this.Participantes = this.Participantes.OrderBy(alumno => alumno.Equipo).ToList();
         }
 
         public override string VerResultado()
         {
             StringBuilder sb = new StringBuilder();
             sb.Append($"En este lanzamiento participaron:{Environment.NewLine}");
-            foreach (Alumno a in participantes)
+            foreach (Alumno a in Participantes)
             {
                 sb.AppendLine(a.ToString());
             }
-            sb.AppendLine($"Gano el equipo: {this.ganador}");
+            sb.AppendLine($"Gano el equipo: {this.Ganador}");
             sb.AppendLine($"Los puntos otorgados por este juego son: {this.Puntos}");
 
             return sb.ToString();
@@ -92,9 +104,8 @@ namespace Entidades
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append($"{this.Id}");
+            sb.Append($"{this.Identificador}");
             return sb.ToString();
         }
-
     }
 }

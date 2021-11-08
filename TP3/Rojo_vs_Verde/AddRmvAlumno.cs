@@ -25,7 +25,7 @@ namespace Evento_deportivo
                 lst_alumnos.Items.Add(a);
             }
 
-            foreach (Alumno a in Jugar.selectedItem.participantes)
+            foreach (Alumno a in Jugar.selectedItem.Participantes)
             {
                 lst_participantes.Items.Add(a);
             }

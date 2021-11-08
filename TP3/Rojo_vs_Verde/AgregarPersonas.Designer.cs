@@ -34,6 +34,7 @@ namespace Evento_deportivo
             this.btn_AgregarProfesor = new System.Windows.Forms.Button();
             this.btn_RemoverAlumno = new System.Windows.Forms.Button();
             this.btn_RemoverProfesor = new System.Windows.Forms.Button();
+            this.btn_Volver = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_Listo
@@ -79,7 +80,7 @@ namespace Evento_deportivo
             this.btn_RemoverAlumno.FlatAppearance.BorderSize = 2;
             this.btn_RemoverAlumno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_RemoverAlumno.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_RemoverAlumno.Location = new System.Drawing.Point(27, 285);
+            this.btn_RemoverAlumno.Location = new System.Drawing.Point(27, 241);
             this.btn_RemoverAlumno.Name = "btn_RemoverAlumno";
             this.btn_RemoverAlumno.Size = new System.Drawing.Size(315, 42);
             this.btn_RemoverAlumno.TabIndex = 7;
@@ -96,13 +97,30 @@ namespace Evento_deportivo
             this.btn_RemoverProfesor.FlatAppearance.BorderSize = 2;
             this.btn_RemoverProfesor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_RemoverProfesor.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_RemoverProfesor.Location = new System.Drawing.Point(415, 285);
+            this.btn_RemoverProfesor.Location = new System.Drawing.Point(415, 241);
             this.btn_RemoverProfesor.Name = "btn_RemoverProfesor";
             this.btn_RemoverProfesor.Size = new System.Drawing.Size(315, 42);
             this.btn_RemoverProfesor.TabIndex = 8;
             this.btn_RemoverProfesor.Text = "Remover profesor";
             this.btn_RemoverProfesor.UseVisualStyleBackColor = false;
             this.btn_RemoverProfesor.Click += new System.EventHandler(this.btn_RemoverProfesor_Click);
+            // 
+            // btn_Volver
+            // 
+            this.btn_Volver.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Volver.BackColor = System.Drawing.Color.Lavender;
+            this.btn_Volver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btn_Volver.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btn_Volver.FlatAppearance.BorderSize = 2;
+            this.btn_Volver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Volver.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_Volver.Location = new System.Drawing.Point(27, 356);
+            this.btn_Volver.Name = "btn_Volver";
+            this.btn_Volver.Size = new System.Drawing.Size(703, 42);
+            this.btn_Volver.TabIndex = 9;
+            this.btn_Volver.Text = "Volver";
+            this.btn_Volver.UseVisualStyleBackColor = false;
+            this.btn_Volver.Click += new System.EventHandler(this.btn_Volver_Click);
             // 
             // AgregarPersonas
             // 
@@ -111,6 +129,7 @@ namespace Evento_deportivo
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(784, 461);
+            this.Controls.Add(this.btn_Volver);
             this.Controls.Add(this.btn_RemoverProfesor);
             this.Controls.Add(this.btn_RemoverAlumno);
             this.Controls.Add(this.btn_AgregarProfesor);
@@ -131,5 +150,6 @@ namespace Evento_deportivo
         private System.Windows.Forms.Button btn_AgregarProfesor;
         private System.Windows.Forms.Button btn_RemoverAlumno;
         private System.Windows.Forms.Button btn_RemoverProfesor;
+        private System.Windows.Forms.Button btn_Volver;
     }
 }

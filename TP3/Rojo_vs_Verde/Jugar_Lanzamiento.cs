@@ -20,7 +20,7 @@ namespace Evento_deportivo
 
         private void Jugar_Lanzamiento_Load(object sender, EventArgs e)
         {
-            foreach (Alumno a in Jugar.selectedItem.participantes)
+            foreach (Alumno a in Jugar.selectedItem.Participantes)
             {
                 lst_participantes.Items.Add(a);
             }
@@ -53,7 +53,6 @@ namespace Evento_deportivo
                 }
             }
         }
-
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
             this.Close();

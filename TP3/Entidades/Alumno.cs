@@ -12,6 +12,11 @@ namespace Entidades
         protected Equipo equipo;
         protected Curso curso;
 
+        public Alumno()
+        {
+                
+        }
+
         public Alumno(string nombre, string apellido, string dni, int legajo, Curso curso,Equipo equipo):base(nombre, apellido, dni)
         {
             this.legajo = legajo;
@@ -25,12 +30,40 @@ namespace Entidades
             {
                 return this.equipo;
             }
+            set
+            {
+                equipo = value;
+            }
+        }
+
+        public Curso Curso
+        {
+            get
+            {
+                return this.curso;
+            }
+            set
+            {
+                curso = value;
+            }
+        }
+
+        public int Legajo
+        {
+            get
+            {
+                return this.legajo;
+            }
+            set
+            {
+                legajo = value;
+            }
         }
 
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append($"{base.ToString()} Legajo: {this.legajo} Equipo: {this.Equipo}");
+            sb.Append($"{base.ToString()} Legajo: {this.legajo} Curso: {this.curso} Equipo: {this.Equipo}");
             return sb.ToString();
         }
     }

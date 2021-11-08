@@ -40,5 +40,10 @@ namespace Evento_deportivo
             Remover_Profesor remover_Profesor = new Remover_Profesor();
             remover_Profesor.Show();
         }
+
+        private void btn_Volver_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

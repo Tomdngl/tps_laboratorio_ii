@@ -3,17 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Entidades
 {
+    [XmlInclude(typeof(Carrera))]
+    [XmlInclude(typeof(Lanzamiento))]
     public class Carrera : Juego, IJugable
     {
+        public Carrera()
+        {
+
+        }
         public Carrera(int puntos, Profesor responsable, string identificador) : base(Equipo.Indefinido)
         {
-            this.responsable = responsable;
-            this.identificador = identificador;
+            this.Responsable = responsable;
+            this.Identificador = identificador;
             this.puntos = puntos;
-            participantes = new List<Alumno>();
+            Participantes = new List<Alumno>();
         }
 
         public override int Puntos
@@ -21,21 +28,25 @@ namespace Entidades
             get
             {
                 int puntos = 0;
-                foreach (Alumno alumno in participantes)
+                foreach (Alumno alumno in Participantes)
                 {
-                    if (alumno.Equipo == this.ganador)
+                    if (alumno.Equipo == this.Ganador)
                     {
                         puntos = this.puntos + puntos;
                     }
                 }
                 return puntos;
             }
+            set
+            {
+                puntos = value;
+            }
         }
         public override bool Jugar(Equipo ganador, int puntos)
         {
             if (ganador != Equipo.Indefinido && CheckLista())
             {
-                this.ganador = ganador;
+                this.Ganador = ganador;
                 this.puntos = puntos;
                 return true;
             }
@@ -46,9 +57,9 @@ namespace Entidades
         {
             bool hayVerde = false;
             bool hayRojo = false;
-            if(this.participantes.Count >= 2 && this.participantes.Count % 2 == 0)
+            if(this.Participantes.Count >= 2 && this.Participantes.Count % 2 == 0)
             {
-                foreach (Alumno alumno in this.participantes)
+                foreach (Alumno alumno in this.Participantes)
                 {
                     if(alumno.Equipo == Equipo.Rojo)
                     {
@@ -69,18 +80,18 @@ namespace Entidades
 
         public void OrdenarPorEquipos()
         {
-            this.participantes = this.participantes.OrderBy(alumno => alumno.Equipo).ToList();
+            this.Participantes = this.Participantes.OrderBy(alumno => alumno.Equipo).ToList();
         }
 
         public override string VerResultado()
         {
             StringBuilder sb = new StringBuilder();
             sb.Append($"En esta carrera participaron:{Environment.NewLine}");
-            foreach (Alumno a in participantes)
+            foreach (Alumno a in Participantes)
             {
                 sb.AppendLine(a.ToString());
             }
-            sb.AppendLine($"Gano el equipo: {this.ganador}");
+            sb.AppendLine($"Gano el equipo: {this.Ganador}");
             sb.AppendLine($"Los puntos otorgados por este juego son: {this.Puntos}");
 
             return sb.ToString();
@@ -88,7 +99,7 @@ namespace Entidades
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append($"{this.Id}");
+            sb.Append($"{this.Identificador}");
             return sb.ToString();
         }
     }

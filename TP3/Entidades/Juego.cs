@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Entidades
 {
+    [XmlInclude(typeof(Carrera))]
+    [XmlInclude(typeof(Lanzamiento))]
     public abstract class Juego
     {
         protected Equipo ganador;
@@ -13,38 +16,33 @@ namespace Entidades
         protected int puntos;
         protected Profesor responsable;
         protected string identificador;
+
+        public Juego()
+        {
+
+        }
         public Juego(Equipo ganador)
         {
-            this.ganador = Equipo.Indefinido;
+            this.Ganador = Equipo.Indefinido;
             this.puntos = 0;
-            this.responsable = null;
+            this.Responsable = null;
         }
         public abstract int Puntos
         {
             get;
+            set;
         }
 
-        public string Id
-        {
-            get
-            {
-                return this.identificador;
-            }
-        }
-
-        public Equipo Ganador
-        {
-            get
-            {
-                return this.ganador;
-            }
-        }
+        public List<Alumno> Participantes { get => participantes; set => participantes = value; }
+        public Profesor Responsable { get => responsable; set => responsable = value; }
+        public Equipo Ganador { get => ganador; set => ganador = value; }
+        public string Identificador { get => identificador; set => identificador = value; }
 
         public virtual bool Jugar(Equipo ganador, int puntos)
         {
             if (ganador != Equipo.Indefinido)
             {
-                this.ganador = ganador;
+                this.Ganador = ganador;
                 this.puntos = puntos;
                 return true;
             }
@@ -60,9 +58,9 @@ namespace Entidades
 
         public static bool operator +(Juego j, Alumno a)
         {
-            if (!j.participantes.Contains(a))
+            if (!j.Participantes.Contains(a))
             {
-                j.participantes.Add(a);
+                j.Participantes.Add(a);
                 return true;
             }
             return false;
@@ -70,9 +68,9 @@ namespace Entidades
 
         public static bool operator -(Juego j, Alumno a)
         {
-            if (j.participantes.Contains(a))
+            if (j.Participantes.Contains(a))
             {
-                j.participantes.Remove(a);
+                j.Participantes.Remove(a);
                 return true;
             }
             return false;

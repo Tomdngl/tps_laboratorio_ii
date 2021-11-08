@@ -11,16 +11,23 @@ namespace Entidades
         protected int idColegio;
         protected Materia materia;
 
+        public int IdColegio { get => idColegio; set => idColegio = value; }
+        public Materia Materia { get => materia; set => materia = value; }
+
+        public Profesor()
+        {
+
+        }
         public Profesor(string nombre, string apellido, string dni, int idColegio, Materia materia) : base(nombre, apellido, dni)
         {
-            this.idColegio = idColegio;
-            this.materia = materia;
+            this.IdColegio = idColegio;
+            this.Materia = materia;
         }
 
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append($"{base.ToString()} Legajo: {this.idColegio} Materia: {this.materia}");
+            sb.Append($"{base.ToString()} Legajo: {this.IdColegio} Materia: {this.Materia}");
             return sb.ToString();
         }
     }

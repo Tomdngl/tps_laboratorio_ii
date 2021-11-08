@@ -130,7 +130,6 @@ namespace Evento_deportivo
                  MessageBoxIcon.Information);
             }
         }
-
         private void btn_volver_Click(object sender, EventArgs e)
         {
             this.Close();
