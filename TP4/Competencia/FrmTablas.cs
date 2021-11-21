@@ -13,6 +13,7 @@ namespace Competencia
 {
     public partial class FrmTablas : Form
     {
+        public static string selectedCmb;
         public FrmTablas()
         {
             InitializeComponent();
@@ -28,13 +29,13 @@ namespace Competencia
         {
             switch (cmb_tipo.Text)
             {
-                //Utilizar actualizar listas
                 case "Ajedrez":
                     List<Ajedrez> ajedrez = BaseDeDatos.ObtenerAjedrez();
                     FrmCompetencia.ajedrez.Lista = ajedrez;
                     dgv_juegos.DataSource = ajedrez;
                     lbl_Puntos.Text = $"Puntos: {FrmCompetencia.ajedrez.PuntosTotales}/{FrmCompetencia.ajedrez.PuntosMax}";
                     Entidades.Competencia<Ajedrez>.VerificarEstado(FrmCompetencia.ajedrez);
+                    selectedCmb = cmb_tipo.Text;
                     break;
                 case "Quemados":
                     List<Quemados> quemados = BaseDeDatos.ObtenerQuemados();
@@ -42,6 +43,7 @@ namespace Competencia
                     dgv_juegos.DataSource = quemados;
                     lbl_Puntos.Text = $"Puntos: {FrmCompetencia.quemados.PuntosTotales}/{FrmCompetencia.quemados.PuntosMax}";
                     Entidades.Competencia<Quemados>.VerificarEstado(FrmCompetencia.quemados);
+                    selectedCmb = cmb_tipo.Text;
                     break;
                 case "Carrera":
                     List<Carrera> carrera = BaseDeDatos.ObtenerCarrera();
@@ -49,6 +51,7 @@ namespace Competencia
                     dgv_juegos.DataSource = carrera;
                     lbl_Puntos.Text = $"Puntos: {FrmCompetencia.carrera.PuntosTotales}/{FrmCompetencia.carrera.PuntosMax}";
                     Entidades.Competencia<Carrera>.VerificarEstado(FrmCompetencia.carrera);
+                    selectedCmb = cmb_tipo.Text;
                     break;
             }
 
@@ -85,18 +88,15 @@ namespace Competencia
             FrmJuego juego = new FrmJuego();
             try
             {
-                if (cmb_tipo.Text != "")
+                if (cmb_tipo.Text != "" && dgv_juegos.SelectedRows.Count == 1)
                 {
                     DialogResult respuesta = juego.ShowDialog();
                     if (respuesta == DialogResult.OK)
-                    {   
-                        if(dgv_juegos.SelectedRows.Count > 0)
-                        {
+                    {                           
                             Juego juego1;
                             juego1 = (Juego)dgv_juegos.CurrentRow.DataBoundItem;
                             BaseDeDatos.Modificar(juego.Juego, juego1.Codigo);
-                            cmb_tipo_SelectedIndexChanged(this, e);
-                        }
+                            cmb_tipo_SelectedIndexChanged(this, e);                        
                     }
                 }
                 else
@@ -115,7 +115,7 @@ namespace Competencia
             {
                 if (cmb_tipo.Text != "")
                 {
-                    if (dgv_juegos.SelectedRows.Count > 0)
+                    if (dgv_juegos.SelectedRows.Count == 1)
                     {
                         Juego juego1;
                         juego1 = (Juego)dgv_juegos.CurrentRow.DataBoundItem;
@@ -124,7 +124,7 @@ namespace Competencia
                     }
                     else
                     {
-                        MessageBox.Show("Debe seleccionar una columna.", "Error", MessageBoxButtons.OK);
+                        MessageBox.Show("Debe seleccionar solo una columna.", "Error", MessageBoxButtons.OK);
                     }
                 }
                 else

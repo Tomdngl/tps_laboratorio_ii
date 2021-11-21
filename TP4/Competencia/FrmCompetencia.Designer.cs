@@ -33,6 +33,7 @@ namespace Competencia
             this.btn_Estadisticas = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_Tablas = new System.Windows.Forms.Button();
+            this.btn_Archivos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,19 +81,37 @@ namespace Competencia
             this.btn_Tablas.UseVisualStyleBackColor = false;
             this.btn_Tablas.Click += new System.EventHandler(this.btn_Tablas_Click);
             // 
-            // Competencia
+            // btn_Archivos
+            // 
+            this.btn_Archivos.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Archivos.BackColor = System.Drawing.Color.Lavender;
+            this.btn_Archivos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btn_Archivos.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btn_Archivos.FlatAppearance.BorderSize = 2;
+            this.btn_Archivos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Archivos.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_Archivos.Location = new System.Drawing.Point(57, 325);
+            this.btn_Archivos.Name = "btn_Archivos";
+            this.btn_Archivos.Size = new System.Drawing.Size(289, 76);
+            this.btn_Archivos.TabIndex = 6;
+            this.btn_Archivos.Text = "Archivos";
+            this.btn_Archivos.UseVisualStyleBackColor = false;
+            this.btn_Archivos.Click += new System.EventHandler(this.btn_Archivos_Click);
+            // 
+            // FrmCompetencia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(784, 461);
+            this.Controls.Add(this.btn_Archivos);
             this.Controls.Add(this.btn_Tablas);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btn_Estadisticas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Competencia";
+            this.Name = "FrmCompetencia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Evento deportivo";
             this.Load += new System.EventHandler(this.EventoDeportivo_Load);
@@ -105,5 +124,6 @@ namespace Competencia
         private System.Windows.Forms.Button btn_Estadisticas;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btn_Tablas;
+        private System.Windows.Forms.Button btn_Archivos;
     }
 }

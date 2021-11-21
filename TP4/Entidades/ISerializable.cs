@@ -8,8 +8,7 @@ namespace Entidades
 {
     interface ISerializable
     {
-        bool Xml();
-
-        bool Xml(out Juego j);
+        bool SerializarAJson(string ruta, List<Juego> juego);
+        List<Juego> DeserializarAJson(string ruta);
     }
 }

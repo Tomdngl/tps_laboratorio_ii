@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace Entidades
 {
-    public class Juego
+    public class Juego : ISerializable
     {
         protected int codigo;
         protected Equipo ganador;
@@ -35,7 +37,44 @@ namespace Entidades
         public int ParticipantesVerdes { get => participantesVerdes; set => participantesVerdes = value; }
         public int Puntos { get => puntos; set => puntos = value; }
         public double Minutos { get => minutos; set => minutos = value; }
-        public int Participantes { get => this.participantesRojos + this.ParticipantesVerdes; }
+        public int Participantes { get => this.participantesRojos + this.ParticipantesVerdes; }       
+
+
+        public static bool SerializarJson(string ruta, List<Juego> juego)
+        {
+            try
+            {
+                JsonSerializerOptions jsonSerializerOptions = new JsonSerializerOptions();
+                jsonSerializerOptions.WriteIndented = true;
+
+                string objetoJson = JsonSerializer.Serialize<object>(juego, jsonSerializerOptions);
+
+                File.WriteAllText(ruta, objetoJson);
+                return true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public static List<Juego> DeserializarJson(string ruta)
+        {
+            string objetoJson = File.ReadAllText(ruta);
+
+            List<Juego> objeto = JsonSerializer.Deserialize<List<Juego>>(objetoJson);
+
+            return objeto;
+        }
+        public List<Juego> DeserializarAJson(string ruta)
+        {
+            return Juego.DeserializarJson(ruta);
+        }
+        public bool SerializarAJson(string ruta, List<Juego> juego)
+        {
+            return Juego.SerializarJson(ruta, juego);
+        }
+
 
         public override string ToString()
         {

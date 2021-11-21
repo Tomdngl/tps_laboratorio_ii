@@ -182,7 +182,7 @@ namespace Competencia
             this.btn_MostrarResultados.Name = "btn_MostrarResultados";
             this.btn_MostrarResultados.Size = new System.Drawing.Size(289, 76);
             this.btn_MostrarResultados.TabIndex = 43;
-            this.btn_MostrarResultados.Text = "Mostrar resultados";
+            this.btn_MostrarResultados.Text = "Mostrar resultados / Informes";
             this.btn_MostrarResultados.UseVisualStyleBackColor = false;
             this.btn_MostrarResultados.Click += new System.EventHandler(this.btn_MostrarResultados_Click);
             // 

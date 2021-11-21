@@ -28,3 +28,4 @@ C:\Users\Tomas Dangelo\Documents\Tom\Facultad\Primer año\Segundo cuatrimestre\t
 C:\Users\Tomas Dangelo\Documents\Tom\Facultad\Primer año\Segundo cuatrimestre\tps_laboratorio_ii\TP4\Competencia\obj\Debug\net5.0-windows\Competencia.FrmCompetencia.resources
 C:\Users\Tomas Dangelo\Documents\Tom\Facultad\Primer año\Segundo cuatrimestre\tps_laboratorio_ii\TP4\Competencia\obj\Debug\net5.0-windows\Competencia.FrmEstadisticas.resources
 C:\Users\Tomas Dangelo\Documents\Tom\Facultad\Primer año\Segundo cuatrimestre\tps_laboratorio_ii\TP4\Competencia\obj\Debug\net5.0-windows\Competencia.FrmTablas.resources
+C:\Users\Tomas Dangelo\Documents\Tom\Facultad\Primer año\Segundo cuatrimestre\tps_laboratorio_ii\TP4\Competencia\obj\Debug\net5.0-windows\Competencia.FrmArchivos.resources

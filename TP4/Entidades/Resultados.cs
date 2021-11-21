@@ -13,7 +13,9 @@ namespace Entidades
         {
             try
             {
-                using (StreamWriter nuevoTexto = new StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + $"\\Resultado{tipo}.log"))
+                string pathArchivo = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Competencia\";
+                pathArchivo += @"Resultado " + tipo + ".log";
+                using (StreamWriter nuevoTexto = new StreamWriter(pathArchivo))
                 {
                     nuevoTexto.WriteLine("Fecha: " + DateTime.Now);
                     nuevoTexto.WriteLine("Ganador: " + ((Competencia<T>)sender).Ganador);
@@ -31,10 +33,12 @@ namespace Entidades
         {
             try
             {
-                using (StreamWriter nuevoTexto = new StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Reporte.log"))
+                string pathArchivo = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Competencia\";
+                pathArchivo += @"Reporte " + DateTime.Now.ToString("HH mm ss") + ".log";
+                using (StreamWriter nuevoTexto = new StreamWriter(pathArchivo))
                 {
                     nuevoTexto.WriteLine("Fecha: " + DateTime.Now);
-                    nuevoTexto.WriteLine("La duración supero las 6 horas con un total de: " + ((Competencia<T>)sender).DuracionTotal + "min.");
+                    nuevoTexto.WriteLine("La duración supero las 6 horas con un total de: " + ((Competencia<T>)sender).DuracionTotal + " min.");
                     nuevoTexto.WriteLine("Para la proxima considerar reducir los tiempos o la cantidad de juegos.");
 
                     return true;

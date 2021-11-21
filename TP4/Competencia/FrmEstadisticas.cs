@@ -106,10 +106,12 @@ namespace Competencia
 
         private void btn_MostrarResultados_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Para mostrar los resultados de una categoria finalizada busque el archivo .log con su respectivo nombre.", "Resultados.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            MessageBox.Show("Para mostrar los resultados/informes busque el archivo .log con su respectivo nombre.", "Resultados/Informes.", MessageBoxButtons.OK, MessageBoxIcon.Information);
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Title = "Mostrar resultados";
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Competencia\";
+            openFileDialog.Filter = "Log|*.log";
             openFileDialog.DefaultExt = ".log";
             openFileDialog.FileName = "resultados";
 
@@ -122,7 +124,7 @@ namespace Competencia
                 {
                     using (StreamReader sr = new StreamReader(path))
                     {
-                        MessageBox.Show(sr.ReadToEnd(), "Resultados.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(sr.ReadToEnd(), "Informacion.", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 
                 }

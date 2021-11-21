@@ -25,6 +25,12 @@ namespace Competencia
 
         private void EventoDeportivo_Load(object sender, EventArgs e)
         {
+            string pathArchivo = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Competencia\";
+            if (!Directory.Exists(pathArchivo))
+            {
+                Directory.CreateDirectory(pathArchivo);
+            }
+
             carrera = new Competencia<Carrera>(1000);
             quemados = new Competencia<Quemados>(2000);
             ajedrez = new Competencia<Ajedrez>(800);
@@ -60,6 +66,24 @@ namespace Competencia
                     break;
             }
         }
+        private void Competencia_EventoReporte(object sender, EventArgs e)
+        {
+            string tipo = sender.GetType().ToString();
+            switch (tipo)
+            {
+                case "Entidades.Competencia`1[Entidades.Carrera]":
+                    Resultados<Carrera>.ImprimirReporte(sender);
+                    break;
+                case "Entidades.Competencia`1[Entidades.Quemados]":
+                    Resultados<Quemados>.ImprimirReporte(sender);
+                    break;
+                case "Entidades.Competencia`1[Entidades.Ajedrez]":
+                    Resultados<Ajedrez>.ImprimirReporte(sender);
+                    break;
+                default:
+                    break;
+            }
+        }
 
         public static void Actualizar_Listas()
         {
@@ -78,10 +102,6 @@ namespace Competencia
             }
         }
 
-        private void Competencia_EventoReporte(object sender, EventArgs e)
-        {
-            Resultados<Juego>.ImprimirReporte(sender);
-        }
 
         private void btn_Estadisticas_Click(object sender, EventArgs e)
         {
@@ -93,6 +113,12 @@ namespace Competencia
         {
             FrmTablas tablas = new FrmTablas();
             tablas.Show();
+        }
+
+        private void btn_Archivos_Click(object sender, EventArgs e)
+        {
+            FrmArchivos archivos = new FrmArchivos();
+            archivos.Show();
         }
     }
 }

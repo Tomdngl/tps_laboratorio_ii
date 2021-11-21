@@ -28,6 +28,16 @@ namespace Competencia
         {
             cmb_equipos.Items.Add(Equipo.Rojo);
             cmb_equipos.Items.Add(Equipo.Verde);
+
+            if(FrmTablas.selectedCmb == "Ajedrez")
+            {
+                txt_Rojos.Enabled = false;
+                txt_Rojos.Text = "1";
+                txt_Verdes.Enabled = false;
+                txt_Verdes.Text = "1";
+                txt_Duracion.Enabled = false;
+                txt_Duracion.Text = "60";
+            }
         }
 
         private void btn_Add_Click(object sender, EventArgs e)
