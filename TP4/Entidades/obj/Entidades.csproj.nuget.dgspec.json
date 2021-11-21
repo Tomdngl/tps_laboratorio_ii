@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Tomas Dangelo\\Documents\\Tom\\Facultad\\Primer año\\Segundo cuatrimestre\\tps_laboratorio_ii\\TP3\\Entidades\\Entidades.csproj": {}
+    "C:\\Users\\Tomas Dangelo\\Documents\\Tom\\Facultad\\Primer año\\Segundo cuatrimestre\\tps_laboratorio_ii\\TP4\\Entidades\\Entidades.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Tomas Dangelo\\Documents\\Tom\\Facultad\\Primer año\\Segundo cuatrimestre\\tps_laboratorio_ii\\TP3\\Entidades\\Entidades.csproj": {
+    "C:\\Users\\Tomas Dangelo\\Documents\\Tom\\Facultad\\Primer año\\Segundo cuatrimestre\\tps_laboratorio_ii\\TP4\\Entidades\\Entidades.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Tomas Dangelo\\Documents\\Tom\\Facultad\\Primer año\\Segundo cuatrimestre\\tps_laboratorio_ii\\TP3\\Entidades\\Entidades.csproj",
+        "projectUniqueName": "C:\\Users\\Tomas Dangelo\\Documents\\Tom\\Facultad\\Primer año\\Segundo cuatrimestre\\tps_laboratorio_ii\\TP4\\Entidades\\Entidades.csproj",
         "projectName": "Entidades",
-        "projectPath": "C:\\Users\\Tomas Dangelo\\Documents\\Tom\\Facultad\\Primer año\\Segundo cuatrimestre\\tps_laboratorio_ii\\TP3\\Entidades\\Entidades.csproj",
+        "projectPath": "C:\\Users\\Tomas Dangelo\\Documents\\Tom\\Facultad\\Primer año\\Segundo cuatrimestre\\tps_laboratorio_ii\\TP4\\Entidades\\Entidades.csproj",
         "packagesPath": "C:\\Users\\Tomas Dangelo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Tomas Dangelo\\Documents\\Tom\\Facultad\\Primer año\\Segundo cuatrimestre\\tps_laboratorio_ii\\TP3\\Entidades\\obj\\",
+        "outputPath": "C:\\Users\\Tomas Dangelo\\Documents\\Tom\\Facultad\\Primer año\\Segundo cuatrimestre\\tps_laboratorio_ii\\TP4\\Entidades\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Tomas Dangelo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,12 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    static public class Tablon
+    static public class Tablon<T> where T : Juego
     {
-        static public List<Juego> juegos;
+        static public List<T> juegos;
         static public List<Profesor> profesores;
         static public List<Alumno> alumnos;
 
         static Tablon()
         {
-            juegos = new List<Juego>();
+            juegos = new List<T>();
             profesores = new List<Profesor>();
             alumnos = new List<Alumno>();
         }
@@ -26,7 +26,7 @@ namespace Entidades
         /// <returns></returns>
         public static List<Juego> FiltrarRojo(List<Juego> lista)
         {
-            foreach (Juego j in Tablon.juegos)
+            foreach (Juego j in Tablon<T>.juegos)
             {
                 if(j.Ganador == Equipo.Rojo)
                 {
@@ -43,7 +43,7 @@ namespace Entidades
         /// <returns></returns>
         public static List<Juego> FiltrarVerde(List<Juego> lista)
         {
-            foreach (Juego j in Tablon.juegos)
+            foreach (Juego j in Tablon<T>.juegos)
             {
                 if (j.Ganador == Equipo.Verde)
                 {
