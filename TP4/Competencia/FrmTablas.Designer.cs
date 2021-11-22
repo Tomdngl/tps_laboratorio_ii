@@ -176,7 +176,7 @@ namespace Competencia
             this.lbl_Seleccione.Text = "Mostrando todos, seleccione un tipo de juego.";
             this.lbl_Seleccione.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Tablas
+            // FrmTablas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -194,7 +194,8 @@ namespace Competencia
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Tablas";
+            this.Name = "FrmTablas";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tablas";
             this.Load += new System.EventHandler(this.Tablas_Load);

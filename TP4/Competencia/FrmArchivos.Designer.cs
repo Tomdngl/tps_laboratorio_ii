@@ -166,7 +166,12 @@ namespace Competencia
             this.Controls.Add(this.btn_ExportarTipo);
             this.Controls.Add(this.dgv_juegos);
             this.Controls.Add(this.btn_ExportarSeleccion);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmArchivos";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmArchivos";
             this.Load += new System.EventHandler(this.FrmArchivos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_juegos)).EndInit();

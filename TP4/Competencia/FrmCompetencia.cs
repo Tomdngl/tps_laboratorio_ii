@@ -72,13 +72,13 @@ namespace Competencia
             switch (tipo)
             {
                 case "Entidades.Competencia`1[Entidades.Carrera]":
-                    Resultados<Carrera>.ImprimirReporte(sender);
+                    Resultados<Carrera>.ImprimirReporte(sender, "Carrera");
                     break;
                 case "Entidades.Competencia`1[Entidades.Quemados]":
-                    Resultados<Quemados>.ImprimirReporte(sender);
+                    Resultados<Quemados>.ImprimirReporte(sender, "Quemados");
                     break;
                 case "Entidades.Competencia`1[Entidades.Ajedrez]":
-                    Resultados<Ajedrez>.ImprimirReporte(sender);
+                    Resultados<Ajedrez>.ImprimirReporte(sender, "Ajedrez");
                     break;
                 default:
                     break;
@@ -101,8 +101,6 @@ namespace Competencia
                 throw;
             }
         }
-
-
         private void btn_Estadisticas_Click(object sender, EventArgs e)
         {
             FrmEstadisticas frmEstadisticas = new FrmEstadisticas();

@@ -207,7 +207,9 @@ namespace Competencia
             // 
             this.BarraRoja.BackColor = System.Drawing.Color.Red;
             this.BarraRoja.Location = new System.Drawing.Point(12, 342);
+            this.BarraRoja.MaxLength = 0;
             this.BarraRoja.Name = "BarraRoja";
+            this.BarraRoja.ReadOnly = true;
             this.BarraRoja.Size = new System.Drawing.Size(350, 25);
             this.BarraRoja.TabIndex = 45;
             this.BarraRoja.Text = "";
@@ -216,7 +218,9 @@ namespace Competencia
             // 
             this.BarraVerde.BackColor = System.Drawing.Color.Lime;
             this.BarraVerde.Location = new System.Drawing.Point(13, 342);
+            this.BarraVerde.MaxLength = 0;
             this.BarraVerde.Name = "BarraVerde";
+            this.BarraVerde.ReadOnly = true;
             this.BarraVerde.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.BarraVerde.Size = new System.Drawing.Size(760, 25);
             this.BarraVerde.TabIndex = 46;
@@ -272,6 +276,7 @@ namespace Competencia
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmEstadisticas";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmEstadisticas";
             this.Load += new System.EventHandler(this.FrmEstadisticas_Load);

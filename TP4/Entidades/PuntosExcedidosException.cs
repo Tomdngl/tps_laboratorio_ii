@@ -8,6 +8,6 @@ namespace Entidades
 {
     public class PuntosExcedidosException : Exception
     {
-        public override string Message => "No se puede agregar el juego porque excede los puntos permitidos del día.";
+        public override string Message => "No se puede agregar el juego porque excede los puntos permitidos.";
     }
 }

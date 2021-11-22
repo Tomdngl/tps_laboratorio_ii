@@ -17,7 +17,7 @@ namespace Entidades
         {
             foreach (char c in str)
             {
-                if (!char.IsDigit(c) && c != '.')
+                if (!char.IsDigit(c) && c != '.' && c != ',')
                 {
                     return false;
                 }

@@ -75,7 +75,7 @@ namespace Competencia
                 }
                 else
                 {
-                    throw new ParametrosInvalidosException();
+                    MessageBox.Show("Seleccione un tipo antes de realizar esta acción.", "Error", MessageBoxButtons.OK);
                 }
             }
             catch (Exception ex)
@@ -88,20 +88,27 @@ namespace Competencia
             FrmJuego juego = new FrmJuego();
             try
             {
-                if (cmb_tipo.Text != "" && dgv_juegos.SelectedRows.Count == 1)
+                if (cmb_tipo.Text != "")
                 {
-                    DialogResult respuesta = juego.ShowDialog();
-                    if (respuesta == DialogResult.OK)
-                    {                           
-                            Juego juego1;
-                            juego1 = (Juego)dgv_juegos.CurrentRow.DataBoundItem;
-                            BaseDeDatos.Modificar(juego.Juego, juego1.Codigo);
-                            cmb_tipo_SelectedIndexChanged(this, e);                        
+                    if (dgv_juegos.SelectedRows.Count == 1)
+                    {
+                        DialogResult respuesta = juego.ShowDialog();
+                        if (respuesta == DialogResult.OK)
+                        {                           
+                                Juego juego1;
+                                juego1 = (Juego)dgv_juegos.CurrentRow.DataBoundItem;
+                                BaseDeDatos.Modificar(juego.Juego, juego1.Codigo);
+                                cmb_tipo_SelectedIndexChanged(this, e);                        
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Debe seleccionar solo una columna.", "Error", MessageBoxButtons.OK);
                     }
                 }
                 else
                 {
-                    throw new ParametrosInvalidosException();
+                    MessageBox.Show("Seleccione un tipo antes de realizar esta acción.", "Error", MessageBoxButtons.OK);
                 }
             }
             catch (Exception ex)
@@ -129,7 +136,7 @@ namespace Competencia
                 }
                 else
                 {
-                    throw new ParametrosInvalidosException();
+                    MessageBox.Show("Seleccione un tipo antes de realizar esta acción.", "Error", MessageBoxButtons.OK);
                 }
             }
             catch (Exception ex)

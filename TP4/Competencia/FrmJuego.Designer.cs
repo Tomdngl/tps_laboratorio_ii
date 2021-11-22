@@ -47,7 +47,7 @@ namespace Competencia
             // 
             this.txt_Rojos.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txt_Rojos.Location = new System.Drawing.Point(56, 50);
-            this.txt_Rojos.MaxLength = 6;
+            this.txt_Rojos.MaxLength = 4;
             this.txt_Rojos.Name = "txt_Rojos";
             this.txt_Rojos.Size = new System.Drawing.Size(257, 37);
             this.txt_Rojos.TabIndex = 26;
@@ -67,7 +67,7 @@ namespace Competencia
             // 
             this.txt_Verdes.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txt_Verdes.Location = new System.Drawing.Point(464, 50);
-            this.txt_Verdes.MaxLength = 6;
+            this.txt_Verdes.MaxLength = 4;
             this.txt_Verdes.Name = "txt_Verdes";
             this.txt_Verdes.Size = new System.Drawing.Size(257, 37);
             this.txt_Verdes.TabIndex = 28;
@@ -87,7 +87,7 @@ namespace Competencia
             // 
             this.txt_Puntos.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txt_Puntos.Location = new System.Drawing.Point(56, 154);
-            this.txt_Puntos.MaxLength = 6;
+            this.txt_Puntos.MaxLength = 3;
             this.txt_Puntos.Name = "txt_Puntos";
             this.txt_Puntos.Size = new System.Drawing.Size(257, 37);
             this.txt_Puntos.TabIndex = 30;
@@ -107,7 +107,7 @@ namespace Competencia
             // 
             this.txt_Duracion.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txt_Duracion.Location = new System.Drawing.Point(464, 154);
-            this.txt_Duracion.MaxLength = 6;
+            this.txt_Duracion.MaxLength = 5;
             this.txt_Duracion.Name = "txt_Duracion";
             this.txt_Duracion.Size = new System.Drawing.Size(257, 37);
             this.txt_Duracion.TabIndex = 32;
@@ -119,9 +119,9 @@ namespace Competencia
             this.label4.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.Location = new System.Drawing.Point(464, 123);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(124, 28);
+            this.label4.Size = new System.Drawing.Size(192, 28);
             this.label4.TabIndex = 31;
-            this.label4.Text = "Duracion:";
+            this.label4.Text = "Duracion (min):";
             // 
             // label5
             // 
@@ -195,7 +195,12 @@ namespace Competencia
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txt_Rojos);
             this.Controls.Add(this.label2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmJuego";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Juego";
             this.Load += new System.EventHandler(this.FrmJuego_Load);
             this.ResumeLayout(false);

@@ -112,6 +112,7 @@ namespace Competencia
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmCompetencia";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Evento deportivo";
             this.Load += new System.EventHandler(this.EventoDeportivo_Load);

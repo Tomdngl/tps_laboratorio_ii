@@ -103,14 +103,14 @@ namespace Entidades
             {
                 total += item.Puntos;
             }
-            if (total > c.puntosMax)
+            if (total >= c.puntosMax)
             {
                 if (c.EventoFinalizado != null)
                 {
                     c.EventoFinalizado(c, EventArgs.Empty);
                 }
             }
-            if(c.DuracionTotal > 360)
+            if(c.DuracionTotal >= 360)
             {
                 if (c.EventoReporte != null)
                 {
@@ -123,7 +123,7 @@ namespace Entidades
             double total = 0;
             foreach (Juego item in c.Lista)
             {
-                total += item.Minutos;
+                total += item.Puntos;
             }
             if (total > c.puntosMax)
             {
@@ -136,7 +136,30 @@ namespace Entidades
             return true;
         }
 
-        public static Competencia<T> operator +(Competencia<T> c, T j)
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append($"La competencia tiene los siguientes juegos:{Environment.NewLine}");
+            foreach  (Juego juego in this.Lista)
+            {
+                sb.AppendLine(juego.ToString());
+            }
+            return sb.ToString();
+        }
+
+        public bool Añadir(T j)
+        {
+            if(this + j)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static bool operator +(Competencia<T> c, T j)
         {
             if (PuntosExcedidos(c, j))
             {
@@ -144,13 +167,13 @@ namespace Entidades
             }
             else
             {
-                throw new PuntosExcedidosException();
+                throw new PuntosExcedidosException();                
             }
-            if (c.DuracionTotal > 360 && c.EventoReporte != null)
+            if (c.DuracionTotal >= 360 && c.EventoReporte != null)
             {
                     c.EventoReporte(c, EventArgs.Empty);
             }
-            return c;
+            return true;
         }
     }
 }
