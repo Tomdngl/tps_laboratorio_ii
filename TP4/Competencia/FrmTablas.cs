@@ -18,13 +18,24 @@ namespace Competencia
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// Carga el datagrid y añade items a la combobox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Tablas_Load(object sender, EventArgs e)
         {
-            dgv_juegos.DataSource = BaseDeDatos.ObtenerTodos();
-            cmb_tipo.Items.Add("Ajedrez");
-            cmb_tipo.Items.Add("Carrera");
-            cmb_tipo.Items.Add("Quemados");
+                dgv_juegos.DataSource = BaseDeDatos.ObtenerTodos();
+                cmb_tipo.Items.Add("Ajedrez");
+                cmb_tipo.Items.Add("Carrera");
+                cmb_tipo.Items.Add("Quemados");          
+
         }
+        /// <summary>
+        /// Actualiza los datos necesarios segun el tipo cuando la cmb cambia 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmb_tipo_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (cmb_tipo.Text)
@@ -59,6 +70,11 @@ namespace Competencia
             lbl_Seleccione.Text = "";
         }
 
+        /// <summary>
+        /// Añade un juego
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Add_Click(object sender, EventArgs e)
         {
             FrmJuego juego = new FrmJuego();
@@ -83,6 +99,11 @@ namespace Competencia
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK);
             }           
         }
+        /// <summary>
+        /// Modifica un juego
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Update_Click(object sender, EventArgs e)
         {
             FrmJuego juego = new FrmJuego();
@@ -116,6 +137,11 @@ namespace Competencia
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK);
             }
         }
+        /// <summary>
+        /// Elimina un juego
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Remove_Click(object sender, EventArgs e)
         {
             try

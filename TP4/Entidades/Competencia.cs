@@ -81,6 +81,12 @@ namespace Entidades
         }
         public List<T> Lista { get => juegos; set => juegos = value; }
         public int PuntosMax { get => puntosMax; }
+        /// <summary>
+        /// Cuenta las victorias del equipo especificado y las devuelve
+        /// </summary>
+        /// <param name="lista"></param>
+        /// <param name="equipo"></param>
+        /// <returns></returns>
         public static int VictoriasEquipo(List<T> lista, Equipo equipo)
         {
             int victorias = 0;
@@ -96,6 +102,10 @@ namespace Entidades
             }
             return victorias;
         }
+        /// <summary>
+        /// Verifica el estado de una competencia y dispara sus eventos si es necesario
+        /// </summary>
+        /// <param name="c"></param>
         public static void VerificarEstado(Competencia<T> c)
         {
             double total = 0;
@@ -118,6 +128,12 @@ namespace Entidades
                 }
             }
         }
+        /// <summary>
+        /// Dispara el evento de finalizacion si los puntos alcanzan el establecido por la competencia
+        /// </summary>
+        /// <param name="c"></param>
+        /// <param name="j"></param>
+        /// <returns></returns>
         private static bool PuntosExcedidos(Competencia<T> c, T j)
         {
             double total = 0;
@@ -135,7 +151,10 @@ namespace Entidades
             }
             return true;
         }
-
+        /// <summary>
+        /// Devuelve una cadena con los juegos de la competencia
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
@@ -146,7 +165,11 @@ namespace Entidades
             }
             return sb.ToString();
         }
-
+        /// <summary>
+        /// Añade un juego a la competencia
+        /// </summary>
+        /// <param name="j"></param>
+        /// <returns></returns>
         public bool Añadir(T j)
         {
             if(this + j)
@@ -158,7 +181,12 @@ namespace Entidades
                 return false;
             }
         }
-
+        /// <summary>
+        /// Añade un juego a la competencia si este no ha terminado aun y si se ha superado la duracion del juego dispara el evento
+        /// </summary>
+        /// <param name="c"></param>
+        /// <param name="j"></param>
+        /// <returns></returns>
         public static bool operator +(Competencia<T> c, T j)
         {
             if (PuntosExcedidos(c, j))
@@ -167,7 +195,7 @@ namespace Entidades
             }
             else
             {
-                throw new PuntosExcedidosException();                
+                throw new CompetenciaFinalizadaException();                
             }
             if (c.DuracionTotal >= 360 && c.EventoReporte != null)
             {

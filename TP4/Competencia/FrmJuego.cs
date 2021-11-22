@@ -24,6 +24,11 @@ namespace Competencia
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Añade items a la cmb y hardcodea valores segun la logica del juego.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmJuego_Load(object sender, EventArgs e)
         {
             cmb_equipos.Items.Add(Equipo.Rojo);
@@ -40,6 +45,11 @@ namespace Competencia
             }
         }
 
+        /// <summary>
+        /// Verifica que los parametros ingresados sean correctos y si es asi devuelve el juego a crear/modificar.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Add_Click(object sender, EventArgs e)
         {
             try

@@ -14,6 +14,9 @@ namespace Entidades
         private static SqlConnection conexion;
         private static SqlCommand comando;
 
+        /// <summary>
+        /// Constructor estatico que inicializa los atributos que voy a utilizar en la base de datos
+        /// </summary>
         static BaseDeDatos()
         {
             comando = new SqlCommand();
@@ -22,7 +25,10 @@ namespace Entidades
             conexion = new SqlConnection(BaseDeDatos.cadena_conexion);
             comando.Connection = conexion;
         }
-
+        /// <summary>
+        /// Trae una lista con todos los juegos de la base de datos
+        /// </summary>
+        /// <returns></returns>
         public static List<Juego> ObtenerTodos()
         {
             List<Juego> lista = new List<Juego>();
@@ -58,7 +64,10 @@ namespace Entidades
             }
             return lista;
         }
-
+        /// <summary>
+        /// Trae una lista con todos los ajedrez de la base de datos
+        /// </summary>
+        /// <returns></returns>
         public static List<Ajedrez> ObtenerAjedrez()
         {
             List<Ajedrez> lista = new List<Ajedrez>();
@@ -95,7 +104,10 @@ namespace Entidades
             }
             return lista;
         }
-
+        /// <summary>
+        /// Trae una lista con todos los quemados de la base de datos
+        /// </summary>
+        /// <returns></returns>
         public static List<Quemados> ObtenerQuemados()
         {
             List<Quemados> lista = new List<Quemados>();
@@ -132,7 +144,10 @@ namespace Entidades
             }
             return lista;
         }
-
+        /// <summary>
+        /// Trae una lista con todas las carreras de la base de datos
+        /// </summary>
+        /// <returns></returns>
         public static List<Carrera> ObtenerCarrera()
         {
             List<Carrera> lista = new List<Carrera>();
@@ -169,7 +184,12 @@ namespace Entidades
             }
             return lista;
         }
-
+        /// <summary>
+        /// Agrega un juego a la base de datos
+        /// </summary>
+        /// <param name="juego"></param>
+        /// <param name="tipo"></param>
+        /// <returns></returns>
         public static bool Agregar(Juego juego, string tipo)
         {
             bool isOk = true;
@@ -211,7 +231,12 @@ namespace Entidades
             }
             return isOk;
         }
-
+        /// <summary>
+        /// Modifica un juego de la base de datos
+        /// </summary>
+        /// <param name="juego"></param>
+        /// <param name="codigo"></param>
+        /// <returns></returns>
         public static bool Modificar(Juego juego, int codigo)
         {
             bool isOk = false;
@@ -245,7 +270,11 @@ namespace Entidades
             }
             return isOk;
         }
-
+        /// <summary>
+        /// Elimina un juego de la base de datos
+        /// </summary>
+        /// <param name="juego"></param>
+        /// <returns></returns>
         public static bool Eliminar(Juego juego)
         {
             bool isOk = false;
@@ -274,6 +303,25 @@ namespace Entidades
             }
 
             return isOk;
+        }
+        /// <summary>
+        /// Verifica que la conexion con la base de datos se pueda establecer
+        /// </summary>
+        /// <returns></returns>
+        public static bool IsConnected()
+        {
+            using (SqlConnection connection = new SqlConnection(cadena_conexion))
+            {
+                try
+                {
+                    connection.Open();
+                    return true;
+                }
+                catch (SqlException)
+                {
+                    return false;
+                }
+            }
         }
     }
 }

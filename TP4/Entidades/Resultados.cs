@@ -9,6 +9,12 @@ namespace Entidades
 {
     public class Resultados<T> where T : Juego
     {
+        /// <summary>
+        /// Genera un log con los resultados de una competencia
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="tipo"></param>
+        /// <returns></returns>
         public static bool ImprimirResultados(object sender, string tipo)
         {
             try
@@ -28,7 +34,12 @@ namespace Entidades
                 return false;
             }
         }
-
+        /// <summary>
+        /// Genera un log con la duracion de la competencia que se excedio
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="tipo"></param>
+        /// <returns></returns>
         public static bool ImprimirReporte(object sender, string tipo)
         {
             try

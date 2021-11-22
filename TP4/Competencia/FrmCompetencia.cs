@@ -23,6 +23,12 @@ namespace Competencia
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Inicializa las listas y suscribe los eventos de las mismas. Verifica que exista el directorio que va a utilizar la aplicacion
+        /// y verifica que la conexion con la base de datos sea válida.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EventoDeportivo_Load(object sender, EventArgs e)
         {
             string pathArchivo = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Competencia\";
@@ -43,11 +49,34 @@ namespace Competencia
             quemados.EventoReporte += Competencia_EventoReporte;
             ajedrez.EventoReporte += Competencia_EventoReporte;
 
-            Actualizar_Listas();
+            try
+            {
+                if(BaseDeDatos.IsConnected())
+                {
+                    Actualizar_Listas();
+                }
+                else
+                {
+                    MessageBox.Show("Debe conectarse a la base de datos.", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo iniciar la aplicacion debido a que no se puede establecer conexión con la base de datos.", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK);
+                this.Close();
+
+            }
         }
 
        
-
+        /// <summary>
+        /// Manejador del evento, llama a la impresora de resultados
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Competencia_EventoFinalizado(object sender, EventArgs e)
         {
             string tipo = sender.GetType().ToString();
@@ -66,6 +95,11 @@ namespace Competencia
                     break;
             }
         }
+        /// <summary>
+        /// Manejador del evento, llama a la impresora de resultados
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Competencia_EventoReporte(object sender, EventArgs e)
         {
             string tipo = sender.GetType().ToString();
@@ -85,6 +119,9 @@ namespace Competencia
             }
         }
 
+        /// <summary>
+        /// Actualiza las listas con lo que hay en la base de datos y hace saltar los eventos si es necesario.
+        /// </summary>
         public static void Actualizar_Listas()
         {
             try
@@ -101,6 +138,7 @@ namespace Competencia
                 throw;
             }
         }
+
         private void btn_Estadisticas_Click(object sender, EventArgs e)
         {
             FrmEstadisticas frmEstadisticas = new FrmEstadisticas();

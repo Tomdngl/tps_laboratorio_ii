@@ -21,6 +21,11 @@ namespace Competencia
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Carga los datos a la combobox, escribe el datagrid e inicializa la lista a exportar.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmArchivos_Load(object sender, EventArgs e)
         {
             dgv_juegos.DataSource = BaseDeDatos.ObtenerTodos();
@@ -31,6 +36,11 @@ namespace Competencia
             exportar = new Competencia<Juego>();
         }
 
+        /// <summary>
+        /// En un hilo secundario exporta lo seleccionado por el usuario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_ExportarSeleccion_Click(object sender, EventArgs e)
         {
             if (dgv_juegos.SelectedRows.Count > 0)
@@ -43,6 +53,9 @@ namespace Competencia
             }
         }
 
+        /// <summary>
+        /// Realiza las acciones para exportar la lista en formato json
+        /// </summary>
         private void Exportar()
         {
             try
@@ -69,6 +82,11 @@ namespace Competencia
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK);
             }
         }
+        /// <summary>
+        /// Actualiza el datagrid cuando cambia el combobox con los tipos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmb_tipo_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (cmb_tipo.Text)
@@ -94,6 +112,11 @@ namespace Competencia
             }
         }
 
+        /// <summary>
+        /// Exporta todos los elementos en pantalla que aparecen segun el tipo seleccionado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_ExportarTipo_Click(object sender, EventArgs e)
         {
             dgv_juegos.SelectAll();
@@ -101,6 +124,11 @@ namespace Competencia
             Task.WaitAll(hiloExportar);
             dgv_juegos.ClearSelection();
         }
+        /// <summary>
+        /// Permite traer al datagrid una exportacion anterior.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Importar_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Seleccione el archivo a importar.", "Importar.", MessageBoxButtons.OK, MessageBoxIcon.Information);

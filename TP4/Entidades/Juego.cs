@@ -39,7 +39,12 @@ namespace Entidades
         public double Minutos { get => minutos; set => minutos = value; }
         public int Participantes { get => this.participantesRojos + this.ParticipantesVerdes; }       
 
-
+        /// <summary>
+        /// Serializa una lista a formato json
+        /// </summary>
+        /// <param name="ruta"></param>
+        /// <param name="juego"></param>
+        /// <returns></returns>
         public static bool SerializarJson(string ruta, List<Juego> juego)
         {
             try
@@ -57,7 +62,11 @@ namespace Entidades
                 throw;
             }
         }
-
+        /// <summary>
+        /// Deserializa una lista de formato Json
+        /// </summary>
+        /// <param name="ruta"></param>
+        /// <returns></returns>
         public static List<Juego> DeserializarJson(string ruta)
         {
             string objetoJson = File.ReadAllText(ruta);
@@ -75,7 +84,10 @@ namespace Entidades
             return Juego.SerializarJson(ruta, juego);
         }
 
-
+        /// <summary>
+        /// Devuelve un string con los datos del juego
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

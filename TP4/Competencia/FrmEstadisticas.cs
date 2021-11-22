@@ -19,6 +19,11 @@ namespace Competencia
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Llama a los metodos que calculan los porcentajes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmEstadisticas_Load(object sender, EventArgs e)
         {
             CalcularPorcentajeJuegos();
@@ -26,6 +31,9 @@ namespace Competencia
             CalcularPorcentajeVictorias();
         }
 
+        /// <summary>
+        /// Calcula el porcentaje de los juegos
+        /// </summary>
         private void CalcularPorcentajeJuegos()
         {
             FrmCompetencia.Actualizar_Listas();
@@ -45,7 +53,9 @@ namespace Competencia
             lbl_Carrera.Text = $"Carrera: {porcentajeCarrera}%";
             lbl_Quemados.Text = $"Quemados: {porcentajeQuemados}%";
         }
-
+        /// <summary>
+        /// Calcula el porcentaje de victorias
+        /// </summary>
         private void CalcularPorcentajeVictorias()
         {
             decimal victoriasVerde = 0;
@@ -66,6 +76,9 @@ namespace Competencia
             lbl_VictoriasRojo.Text = victoriasRojo.ToString();
             BarraRoja.Size = new Size((int)nuevoTamaño,25);
         }
+        /// <summary>
+        /// Calcula el porcentaje completado
+        /// </summary>
         private void CalcularPorcentajeCompletado()
         {
             FrmCompetencia.Actualizar_Listas();
@@ -104,6 +117,11 @@ namespace Competencia
             this.Close();
         }
 
+        /// <summary>
+        /// Busca un log generado por el programa en la carpeta correspondiente y lo muestra.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_MostrarResultados_Click(object sender, EventArgs e)
         {
 
