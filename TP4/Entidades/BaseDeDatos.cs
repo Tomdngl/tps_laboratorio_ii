@@ -21,7 +21,7 @@ namespace Entidades
         {
             comando = new SqlCommand();
             comando.CommandType = CommandType.Text;
-            cadena_conexion = @"Data Source=PC-ASROCK;Database=Competencia;Trusted_Connection=True;";
+            cadena_conexion = @"Data Source=PC-ASROCK;Database=TP4-DangeloTomas-Competencia;Trusted_Connection=True;";
             conexion = new SqlConnection(BaseDeDatos.cadena_conexion);
             comando.Connection = conexion;
         }
